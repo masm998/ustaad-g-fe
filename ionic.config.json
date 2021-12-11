@@ -1,0 +1,7 @@
+{
+  "name": "ustaad-g-fe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
