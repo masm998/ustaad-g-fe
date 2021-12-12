@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SignInRolePageRoutingModule } from './sign-up-role-routing.module';
+import { SignUpRolePageRoutingModule } from './sign-up-role-routing.module';
 
-import { SignInRolePage } from './sign-up-role.page';
+import { SignUpRolePage } from './sign-up-role.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SignInRolePageRoutingModule
+    SignUpRolePageRoutingModule
   ],
-  declarations: [SignInRolePage]
+  declarations: [SignUpRolePage]
 })
-export class SignInRolePageModule {}
+export class SignUpRolePageModule {}

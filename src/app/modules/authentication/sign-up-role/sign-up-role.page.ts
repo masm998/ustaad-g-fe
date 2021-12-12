@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './sign-up-role.page.html',
   styleUrls: ['./sign-up-role.page.scss'],
 })
-export class SignInRolePage implements OnInit {
+export class SignUpRolePage implements OnInit {
 
   constructor(
     private router: Router

@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {SignUpRolePage} from './sign-up-role/sign-up-role.page'
+import {SignUpCustomerPage} from './sign-up-customer/sign-up-customer.page'
+import {SignUpUstaadPage} from './sign-up-ustaad/sign-up-ustaad.page'
+import {SignInPage} from './sign-in/sign-in.page'
 
 const routes: Routes = [
   {
@@ -9,16 +13,21 @@ const routes: Routes = [
   },
   {
     path: 'select-role',
-    loadChildren: () => import("./sign-up-role/sign-up-role.module").then( m => m.SignInRolePageModule)
+    component: SignUpRolePage 
   },
   {
     path: 'sign-up-customer',
-    loadChildren: () => import('./sign-up-customer/sign-up-customer.module').then( m => m.SignUpCustomerPageModule)
+    component: SignUpCustomerPage
+    
   },
   {
     path: 'sign-up-ustaad',
-    loadChildren: () => import('./sign-up-ustaad/sign-up-ustaad.module').then( m => m.SignUpUstaadPageModule)
-  },
+    component: SignUpUstaadPage
+  }, 
+  {
+    path: 'sign-in',
+    component: SignInPage
+  }
 ];
 
 @NgModule({
