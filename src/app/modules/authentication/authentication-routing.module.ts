@@ -8,7 +8,7 @@ import {SignInPage} from './sign-in/sign-in.page'
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'select-role',
+    redirectTo: 'sign-in',
     pathMatch: 'full'
   },
   {
