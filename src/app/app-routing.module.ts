@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
  
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: 'base/tabs/home',
     pathMatch: 'full'
   },
+  {
+    path: 'base',
+    loadChildren: () => import('./modules/base/base.module').then( m=>m.BasePageModule)
+  },
+
   {
     path: 'auth',
     loadChildren: () => import('./modules/authentication/authentication.module').then( m => m.AuthenticationModule)
