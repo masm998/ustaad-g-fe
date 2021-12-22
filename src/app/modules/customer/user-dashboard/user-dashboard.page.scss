@@ -1,3 +1,45 @@
+.content{
+    color: #707070;
+    margin-left: 4%;
+}
+
+h3, h4 {
+    font-weight: 600;
+}
+
 .sc-ion-searchbar-md-h{
     border-radius: 25px;
+}
+
+.service-logo {
+    border: 2px solid #707070;
+    border-radius: 50%;
+    font-size: 345%;
+}
+
+.service-div {
+    width: 32%;
+    text-align: center;
+}
+.app-div {
+    border: 2px solid #707070;
+    border-radius: 25px;
+    display: flex;
+    width: 85%;
+    margin-left: 4%;
+}
+.app-image {
+    border: 2px solid #707070;
+    border-radius: 50%;
+    font-size: 221%;
+    margin: 10px;
+    margin-top: 14px;
+}
+
+p {
+    font-size: 80%;
+}
+.star-div{
+    margin-left: 18%;
+    margin-top: 3%;
 }
