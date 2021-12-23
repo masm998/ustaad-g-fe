@@ -7,12 +7,20 @@ h3, h4 {
     font-weight: 600;
 }
 
-.sc-ion-searchbar-md-h{
-    border-radius: 25px;
+::ng-deep .searchbar-input-container.sc-ion-searchbar-md{
+    // border-radius: 25px;
+    width: 95%;
+    // border: 1px solid darkgray;
+
+    input{
+        width: 100%;
+        border-radius: 25px;
+        border: 1px solid darkgray;
+    }
 }
 
 .service-logo {
-    border: 2px solid #707070;
+    border: 1px solid darkgray;
     border-radius: 50%;
     font-size: 345%;
 }
@@ -22,14 +30,14 @@ h3, h4 {
     text-align: center;
 }
 .app-div {
-    border: 2px solid #707070;
+    border: 1px solid darkgray;
     border-radius: 25px;
     display: flex;
     width: 85%;
     margin-left: 4%;
 }
 .app-image {
-    border: 2px solid #707070;
+    border: 1px solid darkgray;
     border-radius: 50%;
     font-size: 221%;
     margin: 10px;
@@ -40,11 +48,19 @@ p {
     font-size: 80%;
 }
 .star-div{
-    margin-left: 18%;
+    margin-left: 9%;
     margin-top: 3%;
 }
+
+.see-all-text {
+    float: right;
+    margin-right: 5%;
+    font-size: 54%;
+    text-decoration: underline;
+}
+
 .outer-div {
-    border: 2px solid #707070;
+    border: 1px solid darkgray;
     border-radius: 25%;
     display: flex;
     width: 85%;

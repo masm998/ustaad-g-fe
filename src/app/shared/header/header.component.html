@@ -1,12 +1,10 @@
-<ion-header>
-  <div class='header-logo' *ngIf= 'logo'>
-    <h4>
-      Ustaad G
-    </h4>
+<ion-header class="ion-no-border hd-circle" color="blue">
+  <div class="header-logo" *ngIf="logo">
+    <h4 class="logo-text">Ustaad G</h4>
   </div>
-  <ion-buttons>
-    <ion-back-button *ngIf = 'back'>
-
-    </ion-back-button>
-  </ion-buttons>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="padding: 0%;" mode="md" *ngIf="back" text="" defaultHref="base/tabs/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
