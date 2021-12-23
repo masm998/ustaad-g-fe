@@ -59,16 +59,18 @@ p {
     text-decoration: underline;
 }
 
-.outer-div {
+.appt-div {
     border: 1px solid darkgray;
-    border-radius: 25%;
-    display: flex;
+    border-radius: 20px;
     width: 85%;
-    font-size: 90%;
+    font-size: 110%;
     margin-left: 4%;
+    text-align: center;
 }
 button{
     text-align: center;
-    margin-top: 23%;
-    margin-right: 33%;
+    background-color:#28ba62;
+    padding: 2%;
+    border-radius: 15px;
+    margin-bottom: 2%;
 }
