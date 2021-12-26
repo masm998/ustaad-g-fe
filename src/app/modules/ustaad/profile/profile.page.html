@@ -1,0 +1,39 @@
+
+
+<ion-content>
+  <div class="content">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="base/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <h2> Profile</h2>
+  </div>
+  <div class= "option">
+    <div (click)= "onClickProfile()">
+      <ion-icon src= '../../../assets/icon/profile.svg'> </ion-icon>
+      <span>Profile Settings</span>
+    </div>
+    <div (click)= "onClickNotification()">
+      <ion-icon src ='../../../../assets/icon/notification-line.svg'></ion-icon>
+      <span>Notifications</span>
+    </div>
+    <div (click)= "onClickAddresses()">
+      <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>
+      <span>Addresses</span>
+    </div>
+    
+    <div (click)="onClickMyInventory()">
+      <ion-icon src ='../../../../assets/icon/tools.svg'></ion-icon>
+      <span>My Inventory</span>
+    </div>
+    <div (click)= "onClickAppointment()">
+      <ion-icon src ='../../../../assets/icon/appointment.svg'></ion-icon>
+      <span>Appointment History</span>
+    </div>
+    <div (click)= 'onClickSignOut()' >
+      <ion-icon src ='../../../../assets/icon/sign-out-line.svg'></ion-icon>
+      <span>Sign out</span>
+    </div>
+  </div>
+  
+  </ion-content>
+  

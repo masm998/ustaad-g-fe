@@ -22,6 +22,11 @@ const routes: Routes = [
     path: 'customer',
     loadChildren: () => import('./modules/customer/customer.module').then( m => m.CustomerModule)
   },
+  {
+    path: 'ustaad',
+    loadChildren: () => import('./modules/ustaad/ustaad.module').then( m => m.UstaadModule)
+  },
+  
 
 ];
 
