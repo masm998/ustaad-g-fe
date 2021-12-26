@@ -10,6 +10,7 @@ export class ApiService {
   prefix = config.backend_url
   headers = {
     // Authorization: `Bearer ${token}`
+    "Access-Control-Allow-Origin":"*"
   }
 
   constructor(private http: HttpClient) { }

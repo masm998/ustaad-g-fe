@@ -3,41 +3,35 @@
   <ion-buttons slot="start">
     <ion-back-button defaultHref="base/tabs/home"></ion-back-button>
   </ion-buttons>
-  <h3> Profile</h3>
+  <h2> Profile</h2>
 </div>
 <div class= "option">
-  <div>
+  <div (click)= "onClickProfile()">
     <ion-icon src= '../../../assets/icon/profile.svg'> </ion-icon>
     <span>Profile Settings</span>
   </div>
-  <div>
-    <ion-icon name= 'notifications'></ion-icon>
+  <div (click)= "onClickNotification()">
+    <ion-icon src ='../../../../assets/icon/notification-line.svg'></ion-icon>
     <span>Notifications</span>
   </div>
-  <div>
-    <ion-icon name="pin"></ion-icon>
+  <div (click)= "onClickAddresses()">
+    <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>
     <span>Addresses</span>
   </div>
-  <div>
-    <!-- <ion-icon src= '../../../assets/icon/profile.svg'> </ion-icon> -->
-    <!-- <ion-icon ios="ios-card"></ion-icon> -->
-    <!-- <ion-icon ios="ios-card-outline" name='card'></ion-icon> -->
-    <ion-icon name="card"></ion-icon>
+  <div> <!-- (click)= "onClickCard()"-->
+    <ion-icon src ='../../../../assets/icon/card-outline.svg'></ion-icon>
     <span>Card & Payment</span>
   </div>
-  <div>
-    <!-- <ion-icon src= '../../../assets/icon/profile.svg'> </ion-icon> -->
-    <ion-icon name="car"></ion-icon>
+  <div (click)="onClickAutomobile()">
+    <ion-icon src ='../../../../assets/icon/car.svg'></ion-icon>
     <span>Automobile Details</span>
   </div>
-  <div>
-    <!-- <ion-icon src= '../../../assets/icon/profile.svg'> </ion-icon> -->
-    <ion-icon name="list-box"></ion-icon>
+  <div (click)= "onClickAppointment()">
+    <ion-icon src ='../../../../assets/icon/appointment.svg'></ion-icon>
     <span>Appointment History</span>
   </div>
-  <div>
-    <!-- <ion-icon src= '../../../assets/icon/profile.svg'> </ion-icon> -->
-    <ion-icon name="return-left"></ion-icon>
+  <div (click)= 'onClickSignOut()' >
+    <ion-icon src ='../../../../assets/icon/sign-out-line.svg'></ion-icon>
     <span>Sign out</span>
   </div>
 </div>
