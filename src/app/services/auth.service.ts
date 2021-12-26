@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   public createUser() {
-
+    return this.apiService.sendGetRequest('appointment')
   }
 
   public logout() {
