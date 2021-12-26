@@ -11,10 +11,6 @@ export class UserDashboardPage implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    let d = this.authService.createUser()
-    d.subscribe((o) => {
-      console.log(o)
-    })
   }
 
 }
