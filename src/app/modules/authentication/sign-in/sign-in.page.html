@@ -4,25 +4,30 @@
   <div>
     <h4>Sign In</h4>
 
-    <form>
+    <form [formGroup]="signInForm" (submit)="onSubmit()">
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="*username"></ion-input>
+          <ion-input type="tel" placeholder="*Enter Phone Number" formControlName="username" ([ngModel])="username" (ionChange)="onInputChange($event)"></ion-input>
+          <!-- <div *ngIf="signInForm.controls['username'].errors && !signInForm.controls['username'].untouched">
+            <div [hidden]="!signInForm.controls['username'].errors.required">
+              Field Value is Required
+            </div>
+          </div> -->
           <div class="input-line"></div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-input type="password" placeholder="*Password"></ion-input>
+          <ion-input type="password" placeholder="*Enter Password" formControlName="password" ([ngModel])="password" (ionChange)="onInputChange($event)"></ion-input>
           <div class="input-line"></div>
         </ion-col>
       </ion-row>
-      <button>
+      <button type="submit">
         Sign In
       </button>
     </form>
     <p>Forget password? <a href= ''>Reset</a></p>
-    <p>Don't have an account? <a href= ''>Sign up</a></p>
+    <p>Don't have an account? <a href= 'auth/select-role'>Sign up</a></p>
 
   </div>
 </ion-content>
