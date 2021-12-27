@@ -5,7 +5,7 @@
   <form [formGroup]="signUpForm" (submit)="onSubmit()">
     <ion-row>
       <ion-col>
-        <ion-input type="text" placeholder="*First Name" autocapitalize="sentences" formControlName="first_name"></ion-input>
+        <ion-input type="text" placeholder="*First Name" autocapitalize="on" formControlName="first_name"></ion-input>
         <div class="input-line"></div>
         <div *ngIf="signUpForm.controls['first_name'].errors && !signUpForm.controls['first_name'].untouched">
           <div [hidden]="!signUpForm.controls['first_name'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
@@ -17,7 +17,7 @@
 
     <ion-row>
       <ion-col>
-        <ion-input type="text" placeholder="Last Name" autocapitalize="sentences" formControlName="last_name"></ion-input>
+        <ion-input type="text" placeholder="Last Name" autocapitalize="on" formControlName="last_name"></ion-input>
         <div class="input-line"></div>
         <!-- <div *ngIf="signUpForm.controls['lastname'].errors && !signUpForm.controls['lastname'].untouched">
           <div [hidden]="!signUpForm.controls['lastname'].errors.required" style="font-size: small;color: red;margin-left: 5%;">

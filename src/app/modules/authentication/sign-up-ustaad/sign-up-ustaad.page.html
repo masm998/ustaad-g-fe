@@ -2,17 +2,22 @@
   <h4>
     Create account
   </h4>
-  <form >
+  <form [formGroup]="signUpForm" (submit)="onSubmit()">
     <ion-row>
       <ion-col>
-        <ion-input type="text" placeholder="*First Name"></ion-input>
+        <ion-input type="text" placeholder="*First Name" formControlName="first_name"></ion-input>
         <div class="input-line"></div>
+        <div *ngIf="signUpForm.controls['first_name'].errors && !signUpForm.controls['first_name'].untouched">
+          <div [hidden]="!signUpForm.controls['first_name'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+            Field Value is Required!
+          </div>
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-input type="text" placeholder="*Last Name"></ion-input>
+        <ion-input type="text" placeholder="Last Name" formControlName="last_name"></ion-input>
         <div class="input-line"></div>
       </ion-col>
     </ion-row>
@@ -20,56 +25,86 @@
 
     <ion-row>
       <ion-col>
-        <ion-input type="number" placeholder="*Mobile"></ion-input>
+        <ion-input type="tel" pattern="[0-9]{11}" placeholder="*Mobile e.g 03123456789" formControlName="mobile"></ion-input>
         <div class="input-line"></div>
+        <div *ngIf="signUpForm.controls['mobile'].errors && !signUpForm.controls['mobile'].untouched">
+          <div [hidden]="!signUpForm.controls['mobile'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+            Field Value is Required!
+          </div>
+        </div>
       </ion-col>
     </ion-row>
     
     <ion-row>
       <ion-col>
-        <ion-input type="email" placeholder="*Email"></ion-input>
-    <div class="input-line"></div>
+        <ion-input type="email" placeholder="*Email" formControlName="email"></ion-input>
+        <div class="input-line"></div>
+        <div *ngIf="signUpForm.controls['email'].errors && !signUpForm.controls['email'].untouched">
+          <div [hidden]="!signUpForm.controls['email'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+            Field Value is Required!
+          </div>
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-input type="password" placeholder="*Password"></ion-input>
-    <div class="input-line"></div>
+        <ion-input type="password" placeholder="*Password" pattern="[a-zA-Z0-9]{8,}" formControlName="password"></ion-input>
+        <div class="input-line"></div>
+        <div *ngIf="signUpForm.controls['password'].errors && !signUpForm.controls['password'].untouched">
+          <div [hidden]="!signUpForm.controls['password'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+            Field Value is Required!
+          </div>
+        </div>
       </ion-col>
-    </ion-row>
-
-    <ion-row>
-    <ion-col>
-      <ion-input type="password" placeholder="*Confirm Password"></ion-input>
-    <div class="input-line"></div>
-    </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-input type="cnic" placeholder="*CNIC"></ion-input>
-      <div class="input-line"></div>
+        <ion-input type="password" placeholder="*Confirm Password" formControlName="confirm_password"></ion-input>
+        <div class="input-line"></div>
+        <div *ngIf="signUpForm.controls['confirm_password'].errors && !signUpForm.controls['confirm_password'].untouched">
+          <div [hidden]="!signUpForm.controls['confirm_password'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+            Field Value is Required!
+          </div>
+        </div>
       </ion-col>
-      </ion-row>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-input type="cnic"pattern="[0-9]{13}" placeholder="*CNIC" formControlName="cnic"></ion-input>
+        <div class="input-line"></div>
+        <div *ngIf="signUpForm.controls['cnic'].errors && !signUpForm.controls['cnic'].untouched">
+          <div [hidden]="!signUpForm.controls['cnic'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+            Field Value is Required!
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
 
         <ion-row>
           <ion-col>
-            <ion-input type="text" placeholder="*Expertise"></ion-input>
-          <div class="input-line"></div>
+            <ion-input type="text" placeholder="*Expertise" formControlName="expertise"></ion-input>
+            <div class="input-line"></div>
+            <div *ngIf="signUpForm.controls['expertise'].errors && !signUpForm.controls['expertise'].untouched">
+              <div [hidden]="!signUpForm.controls['expertise'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+                Field Value is Required!
+              </div>
+            </div>
           </ion-col>
-          </ion-row>
+        </ion-row>
 
           <ion-row>
             <ion-col>
-              <ion-select placeholder="*Use as">
+              <ion-select placeholder="*Use as" formControlName="useas">
               <ion-select-option>Individual</ion-select-option>
               <ion-select-option>Company</ion-select-option>
               </ion-select>
             <div class="input-line"></div>
             </ion-col>
             </ion-row>
-    <button>
+    <button type="submit">
       Sign Up
     </button>
   </form>
