@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router'
+import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,9 +11,7 @@ import { Router } from '@angular/router'
 })
 export class SignInPage implements OnInit {
   signInForm: FormGroup
-  username;
-  password;
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private toastService: ToastService) { }
 
   ngOnInit() {
     this.signInForm = new FormGroup({
@@ -21,21 +20,33 @@ export class SignInPage implements OnInit {
     })
   }
 
-  onInputChange(e){
-    console.log(e.detail.value)
-  }
-
   onSubmit(){
-    this.authService.login(this.signInForm.value.username, this.signInForm.value.password)
-    .subscribe((res) => {
-      if(res.success){
-        if(res.data.role == 3){
-          this.router.navigate(['customer/'])
+    if(this.signInForm.valid) {
+      this.authService.login(this.signInForm.value.username, this.signInForm.value.password)
+      .subscribe((res) => {
+        if(res.success){
+          if(res.user.role == 3){
+            this.router.navigate(['base/tabs/UserHome'])
+          }
+          else if(res.user.role == 2) {
+            this.router.navigate(['base/tabs/UstaadHome'])
+          }
         }
-        else if(res.data.role == 2) {
-          this.router.navigate(['ustaad/'])
-        }
+      })
+    }
+    else {
+      if(!this.signInForm.value.username.valid) {
+        console.log('Mobile number is invalid')
+        this.toastService.loginFailureToast('Invalid Mobile Number')
       }
-    })
+      else if(!this.signInForm.value.password.valid) {
+        console.log('Password is invalid')
+        this.toastService.loginFailureToast('Invalid Password')
+      }
+      else {
+        console.log(this.signInForm.valid)
+        this.toastService.loginFailureToast('Please Fill all Fields')
+      }
+    }
   }
 }

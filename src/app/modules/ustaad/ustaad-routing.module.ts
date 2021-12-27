@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'profile',
-    loadChildren: ()=> import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: ()=> import('./ustaad-profile/ustaad-profile.module').then( m => m.UstaadProfilePageModule)
   }
 ];
 

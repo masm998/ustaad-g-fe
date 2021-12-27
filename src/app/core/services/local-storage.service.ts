@@ -17,9 +17,26 @@ export class LocalStorageService {
     localStorage.setItem("role", role);
     localStorage.setItem("profile_pic", profile_pic);
   }
+  
+  getCredentials() {
+    let credentials = {
+      mobile: localStorage.getItem("mobile"),
+      first_name: localStorage.getItem("first_name"),
+      last_name: localStorage.getItem("last_name"),
+      email: localStorage.getItem("email"),
+      token: localStorage.getItem("token"),
+      profile_pic: localStorage.getItem("profile_pic"),
+    }
+
+    return credentials;
+  }
 
   getUserId() {
     return localStorage.getItem("user_id")
+  }
+
+  getUserRole() {
+    return localStorage.getItem("role")
   }
 
   clearLocalStorage() {

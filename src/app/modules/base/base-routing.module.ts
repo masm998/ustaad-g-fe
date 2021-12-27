@@ -3,18 +3,33 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfilePage } from '../customer/profile/profile.page'
 import { BasePage } from './base.page';
 import { UserDashboardPage } from '../customer/user-dashboard/user-dashboard.page'
+import { AuthGuard } from 'src/app/core/guards/auth-guard.service';
+import { UstaadProfilePage } from '../ustaad/ustaad-profile/ustaad-profile.page';
+
 const routes: Routes = [
   {
     path: 'tabs',
     component: BasePage, 
     children: [
       {
-        path: 'home',
-        component: UserDashboardPage
+        path: 'UserHome',
+        component: UserDashboardPage,
+        canActivate: [AuthGuard],
       },
       {
-        path: 'profile',
-        component: ProfilePage
+        path: 'UserProfile',
+        component: ProfilePage,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'UstaadHome',
+        component: UserDashboardPage,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'UstaadProfile',
+        component: UstaadProfilePage,
+        canActivate: [AuthGuard]
       }
     ]
   }

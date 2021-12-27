@@ -24,3 +24,58 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+
+
+
+
+
+
+//Toast styles
+::ng-deep .hd-success-toast .toast-container {
+    z-index: 1000;
+}
+
+::ng-deep .hd-failure-toast .toast-container {
+    z-index: 1000;
+}
+
+.hd-general-toast {
+    --background: white;
+    --border-color: #707070;
+    --border-width: 1px;
+    --border-style: solid;
+
+    color: #637CB8;
+    font-size: 14px;
+
+    text-align: center;
+}
+
+.hd-green-toast {
+    --background: #00ab66cc;
+    --border-color: #00ab66;
+    --border-width: 1px;
+    --border-style: solid;
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 300;
+
+    text-align: center;
+}
+
+.hd-red-toast {
+    --background: red;
+    --border-color: red;
+    --border-width: 1px;
+    --border-style: solid;
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 300;
+
+    text-align: center;
+}

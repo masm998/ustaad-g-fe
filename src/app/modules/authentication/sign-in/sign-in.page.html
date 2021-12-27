@@ -7,19 +7,24 @@
     <form [formGroup]="signInForm" (submit)="onSubmit()">
       <ion-row>
         <ion-col>
-          <ion-input type="tel" placeholder="*Enter Phone Number" formControlName="username" ([ngModel])="username" (ionChange)="onInputChange($event)"></ion-input>
-          <!-- <div *ngIf="signInForm.controls['username'].errors && !signInForm.controls['username'].untouched">
-            <div [hidden]="!signInForm.controls['username'].errors.required">
-              Field Value is Required
-            </div>
-          </div> -->
+          <ion-input type="tel" pattern="[0-9]{11}" placeholder="*Mobile e.g 03123456789" formControlName="username"></ion-input>
           <div class="input-line"></div>
+          <div *ngIf="signInForm.controls['username'].errors && !signInForm.controls['username'].untouched">
+            <div [hidden]="!signInForm.controls['username'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+              Field Value is Required!
+            </div>
+          </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-input type="password" placeholder="*Enter Password" formControlName="password" ([ngModel])="password" (ionChange)="onInputChange($event)"></ion-input>
+          <ion-input type="password" placeholder="*Password" pattern="[a-zA-Z0-9]{8,}" formControlName="password"></ion-input>
           <div class="input-line"></div>
+          <div *ngIf="signInForm.controls['password'].errors && !signInForm.controls['password'].untouched">
+            <div [hidden]="!signInForm.controls['password'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+              Field Value is Required!
+            </div>
+          </div>
         </ion-col>
       </ion-row>
       <button type="submit">

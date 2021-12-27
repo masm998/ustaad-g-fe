@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-base',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./base.page.scss'],
 })
 export class BasePage implements OnInit {
-
-  constructor() { }
+  role
+  constructor(private localStorage: LocalStorageService) { }
 
   ngOnInit() {
+    this.role = this.localStorage.getUserRole()
   }
 
 }

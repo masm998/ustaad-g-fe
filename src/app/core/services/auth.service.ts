@@ -15,12 +15,11 @@ export class AuthService {
       username: username,
       password: password
     }
-    console.log(request)
     return new Observable((observer) => {
       this.apiService.sendGetRequestParams('user', request)
       .subscribe((res: any) => {
         if(res.success) {
-          this.localStorageService.saveCredentials(res.user_id, res.first_name, res.last_name, res.mobile, res.email, res.token, res.role, res.profile_pic)
+          this.localStorageService.saveCredentials(res.user.user_id, res.user.first_name, res.user.last_name, res.user.mobile, res.user.email, res.user.token, res.user.role, res.user.profile_pic)
           observer.next(res)
         }
         else {
@@ -33,8 +32,32 @@ export class AuthService {
     })
   }
 
-  public createUser() {
-    return this.apiService.sendGetRequest('appointment')
+  public createUser(userData) {
+    return new Observable((observer) => {
+      this.apiService.sendPostRequest('user', userData)
+      .subscribe((res: any) => {
+        if(res.success) {
+          // this.localStorageService.saveCredentials(res.user_id, res.first_name, res.last_name, res.mobile, res.email, res.token, res.role, res.profile_pic)
+          observer.next(res)
+        }
+        else {
+          observer.next(res)
+        }
+      }, (err) => {
+        console.log('Error while logging in: ', err)
+        observer.error(err)
+      })
+    })
+  }
+
+  public isAuthenticated(): boolean {
+    const credentials = this.localStorageService.getCredentials();
+
+    if (credentials.mobile && credentials.token) {
+      return true;
+    }
+
+    return false;
   }
 
   public logout() {

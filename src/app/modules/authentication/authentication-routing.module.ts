@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'
 import { RouterModule, Routes } from '@angular/router';
 import {SignUpRolePage} from './sign-up-role/sign-up-role.page'
 import {SignUpCustomerPage} from './sign-up-customer/sign-up-customer.page'
@@ -31,7 +32,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AuthenticationRoutingModule { }

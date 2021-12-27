@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AutomobilePage } from './automobile.page';
-
+import { AutomobileDetailsPage } from './automobile-details/automobile-details.page';
 const routes: Routes = [
   {
     path: '',
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'automobile-details',
-    loadChildren: () => import('./automobile-details/automobile-details.module').then( m => m.AutomobileDetailsPageModule)
+    component: AutomobileDetailsPage
   }
 ];
 
