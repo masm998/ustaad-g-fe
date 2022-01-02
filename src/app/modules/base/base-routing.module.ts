@@ -5,6 +5,7 @@ import { BasePage } from './base.page';
 import { UserDashboardPage } from '../customer/user-dashboard/user-dashboard.page'
 import { AuthGuard } from 'src/app/core/guards/auth-guard.service';
 import { UstaadProfilePage } from '../ustaad/ustaad-profile/ustaad-profile.page';
+import { UstaadDashboardPage } from '../ustaad/ustaad-dashboard/ustaad-dashboard.page';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
       {
         path: 'UserHome',
         component: UserDashboardPage,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'UserProfile',
@@ -23,7 +24,7 @@ const routes: Routes = [
       },
       {
         path: 'UstaadHome',
-        component: UserDashboardPage,
+        component: UstaadDashboardPage,
         canActivate: [AuthGuard]
       },
       {

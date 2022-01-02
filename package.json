@@ -27,6 +27,7 @@
     "@capacitor/keyboard": "1.2.0",
     "@capacitor/status-bar": "1.0.6",
     "@ionic/angular": "^5.5.2",
+    "@types/googlemaps": "^3.43.3",
     "cors": "^2.8.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
