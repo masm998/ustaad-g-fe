@@ -52,13 +52,24 @@ export class AuthService {
     })
   }
 
-  public isAuthenticated(): boolean {
+  public isAuthenticatedUser(): boolean {
     const credentials = this.localStorageService.getCredentials();
 
     if (credentials.mobile && credentials.token) {
       return true;
     }
 
+    return false;
+  }
+
+  public isAuthenticatedUstaad(): boolean {
+    const credentials = this.localStorageService.getCredentials();
+
+    if (credentials.mobile && credentials.token) {
+      return true;
+    }
+    
+    
     return false;
   }
 

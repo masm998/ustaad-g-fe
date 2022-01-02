@@ -5,6 +5,7 @@ import {SignUpRolePage} from './sign-up-role/sign-up-role.page'
 import {SignUpCustomerPage} from './sign-up-customer/sign-up-customer.page'
 import {SignUpUstaadPage} from './sign-up-ustaad/sign-up-ustaad.page'
 import {SignInPage} from './sign-in/sign-in.page'
+import { AuthGuard } from 'src/app/core/guards/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -14,20 +15,23 @@ const routes: Routes = [
   },
   {
     path: 'select-role',
-    component: SignUpRolePage 
+    component: SignUpRolePage,
+    canActivate: [AuthGuard]
   },
   {
     path: 'sign-up-customer',
-    component: SignUpCustomerPage
-    
+    component: SignUpCustomerPage,
+    canActivate: [AuthGuard]
   },
   {
     path: 'sign-up-ustaad',
-    component: SignUpUstaadPage
+    component: SignUpUstaadPage,
+    canActivate: [AuthGuard]
   }, 
   {
     path: 'sign-in',
-    component: SignInPage
+    component: SignInPage,
+    canActivate: [AuthGuard]
   }
 ];
 

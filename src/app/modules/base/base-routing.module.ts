@@ -4,6 +4,7 @@ import { ProfilePage } from '../customer/profile/profile.page'
 import { BasePage } from './base.page';
 import { UserDashboardPage } from '../customer/user-dashboard/user-dashboard.page'
 import { AuthGuard } from 'src/app/core/guards/auth-guard.service';
+import { UstaadAuthGuard } from 'src/app/core/guards/ustaad-auth-guard.service';
 import { UstaadProfilePage } from '../ustaad/ustaad-profile/ustaad-profile.page';
 import { UstaadDashboardPage } from '../ustaad/ustaad-dashboard/ustaad-dashboard.page';
 
@@ -25,12 +26,12 @@ const routes: Routes = [
       {
         path: 'UstaadHome',
         component: UstaadDashboardPage,
-        canActivate: [AuthGuard]
+        canActivate: [UstaadAuthGuard]
       },
       {
         path: 'UstaadProfile',
         component: UstaadProfilePage,
-        canActivate: [AuthGuard]
+        canActivate: [UstaadAuthGuard]
       }
     ]
   }

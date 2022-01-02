@@ -25,6 +25,7 @@ export class LocalStorageService {
       last_name: localStorage.getItem("last_name"),
       email: localStorage.getItem("email"),
       token: localStorage.getItem("token"),
+      role: localStorage.getItem("role"),
       profile_pic: localStorage.getItem("profile_pic"),
     }
 
@@ -37,6 +38,15 @@ export class LocalStorageService {
 
   getUserRole() {
     return localStorage.getItem("role")
+  }
+
+  setLocation(latitude, longitude) {
+    localStorage.setItem('latitude', latitude)
+    localStorage.setItem('longitude', longitude)
+  }
+
+  getLocation() {
+    
   }
 
   clearLocalStorage() {

@@ -12,19 +12,14 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.isAuthenticated()) {
-      // if(this.checkRole() == '3') {
-      //   this.router.navigate(['base/tabs/UserHome'])
-      // }
-      // else if(this.checkRole() == '2') {
-      //   this.router.navigate(['base/tabs/UstaadHome'])
-      // }
-        return true;
+    if (this.authService.isAuthenticatedUser()) {
+      if(this.checkRole() == "3")
+        {return true;}
+        this.router.navigate(['base/tabs/UstaadHome'])
+        return false;
     }
 
-    // navigate to login page
     this.router.navigate(['/auth/sign-in']);
-    // you can save redirect url so after authing we can move them back to the page they requested
     return false;
   }
 

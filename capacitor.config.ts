@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'ustaad-g-fe',
+  appId: 'app.ustaad.g',
+  appName: 'Ustaad G',
   webDir: 'www',
   bundledWebRuntime: false
 };

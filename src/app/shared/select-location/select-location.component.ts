@@ -11,4 +11,8 @@ export class SelectLocationComponent implements OnInit {
 
   ngOnInit() {}
 
+  returnedResult(event) {
+    console.log(event)
+  }
+
 }

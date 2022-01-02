@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth-guard.service';
+import { UstaadAuthGuard } from './guards/ustaad-auth-guard.service';
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { IonicModule } from '@ionic/angular';
   ],
   providers: [
     AuthGuard,
+    UstaadAuthGuard
     //HD services below
   ],
   entryComponents: [

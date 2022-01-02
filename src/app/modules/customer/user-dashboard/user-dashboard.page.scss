@@ -22,7 +22,9 @@ h3, h4 {
 .service-logo {
     border: 1px solid darkgray;
     border-radius: 50%;
-    font-size: 345%;
+    width: 60%;
+    height: 51%;
+    // font-size: 345%;
 }
 
 .service-div {
@@ -30,11 +32,12 @@ h3, h4 {
     text-align: center;
 }
 .app-div {
-    border: 1px solid darkgray;
+    border: 1px solid #707070;
     border-radius: 25px;
     display: flex;
     width: 85%;
     margin-left: 4%;
+    margin-bottom: 8%;
 }
 .app-image {
     border: 1px solid darkgray;
@@ -44,9 +47,15 @@ h3, h4 {
     margin-top: 14px;
 }
 
-p {
-    font-size: 80%;
+// p {
+//     font-size: 80%;
+//     margin-top: 5%;
+// }
+
+.service-name2 {
+    margin-top: 20%;
 }
+
 .star-div{
     margin-left: 9%;
     margin-top: 3%;
