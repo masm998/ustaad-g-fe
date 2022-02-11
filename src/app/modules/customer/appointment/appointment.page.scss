@@ -1,15 +1,29 @@
+.main {
+    color: #707070;
+    h4 {
+        margin-left: 4%;
+    }
+}
+
 .content{
     display: flex;
     // margin-left: 4%;
     color: #707070;
-
 }
+
+.scheduled-app {
+    font-size: 20px;
+    font-weight: 600;
+    color: #707070;
+}
+
 .app-div {
     border: 1px solid darkgray;
     border-radius: 25px;
     display: flex;
     width: 85%;
     margin-left: 4%;
+    background: #E4E4E4;
 }
 .app-image {
     border: 1px solid darkgray;
@@ -23,19 +37,13 @@ p {
     // margin-left: 3%;
 }
 .star-div{
-    margin-left: 14%;
+    margin-left: 24%;
     margin-top: 3%;
 }
-// .service-logo {
-//     border: 1px solid darkgray;
-//     border-radius: 50%;
-//     font-size: 345%;
-// }
-// .service-div {
-//     width: 32%;
-//     text-align: center;
-// }
-// .plus{
-//     margin-left: 5%;
-//     margin-top: 80%;
-// }
+
+.see-all-text {
+    float: right;
+    margin-right: 8%;
+    font-size: 54%;
+    text-decoration: underline;
+}

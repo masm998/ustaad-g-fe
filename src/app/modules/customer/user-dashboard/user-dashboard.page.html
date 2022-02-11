@@ -3,27 +3,11 @@
     <h3>Ustaad G</h3>
     <ion-searchbar showCancelButton="focus" placeholder='Search Service'></ion-searchbar>
     <h4>Services</h4>
-    <div style="display:flex;"> <!--*ngFor="let service of servicesList">  -->
-      <!-- <div class="service-div">
-        <img class="service-logo" [src]="prefix + servicesList[0]?.image">
-        <p class="service-name">{{servicesList[0]?.service_name}}</p>
-      </div> -->
+    <div style="width:28%;" *ngFor="let service of servicesList">
       <div class="service-div">
-        <img class="service-logo" src="assets/icon/profile.svg">
-        <p class="service-name">Service Name</p>
+        <img class="service-logo" [src]="prefix + service?.image">
+        <p class="service-name">{{service?.service_name}}</p>
       </div>
-      <div class="service-div">
-        <img class="service-logo" src="assets/icon/profile.svg">
-        <p class="service-name">Service Name</p>
-      </div>
-      <div class="service-div">
-        <img class="service-logo" src="assets/icon/profile.svg">
-        <p class="service-name">Service Name</p>
-      </div>
-      <!-- <div class="service-div">
-        <ion-icon class="service-logo" name="person"></ion-icon>
-        <p class="service-name">Service Name</p>
-      </div> -->
     </div>
     <div>
       <h4>Recent Appointments</h4>

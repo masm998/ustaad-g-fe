@@ -16,22 +16,22 @@ const routes: Routes = [
   {
     path: 'select-role',
     component: SignUpRolePage,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'sign-up-customer',
     component: SignUpCustomerPage,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'sign-up-ustaad',
     component: SignUpUstaadPage,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   }, 
   {
     path: 'sign-in',
     component: SignInPage,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   }
 ];
 

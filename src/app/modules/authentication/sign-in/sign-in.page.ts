@@ -24,6 +24,7 @@ export class SignInPage implements OnInit {
     if(this.signInForm.valid) {
       this.authService.login(this.signInForm.value.username, this.signInForm.value.password)
       .subscribe((res) => {
+        console.log(res)
         if(res.success){
           if(res.user.role == 3){
             this.router.navigate(['base/tabs/UserHome'])

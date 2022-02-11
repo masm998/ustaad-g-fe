@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'
 import { Routes, RouterModule } from '@angular/router';
 import { ProfilePage } from '../customer/profile/profile.page'
 import { BasePage } from './base.page';
@@ -16,29 +17,31 @@ const routes: Routes = [
       {
         path: 'UserHome',
         component: UserDashboardPage,
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
       },
       {
         path: 'UserProfile',
         component: ProfilePage,
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
       },
       {
         path: 'UstaadHome',
         component: UstaadDashboardPage,
-        canActivate: [UstaadAuthGuard]
+        // canActivate: [UstaadAuthGuard]
       },
       {
         path: 'UstaadProfile',
         component: UstaadProfilePage,
-        canActivate: [UstaadAuthGuard]
+        // canActivate: [UstaadAuthGuard]
       }
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class BasePageRoutingModule {}

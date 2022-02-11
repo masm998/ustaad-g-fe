@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.ustaad.g',
-  appName: 'Ustaad G',
+  appId: 'ustaadG.app',
+  appName: 'ustaad-g',
   webDir: 'www',
   bundledWebRuntime: false
 };

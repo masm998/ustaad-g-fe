@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SelectLocationComponent } from './shared/select-location/select-location.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,10 @@ const routes: Routes = [
     path: 'ustaad',
     loadChildren: () => import('./modules/ustaad/ustaad.module').then( m => m.UstaadModule)
   },
-  
+  {
+    path: 'select-location',
+    component: SelectLocationComponent
+  }
 
 ];
 

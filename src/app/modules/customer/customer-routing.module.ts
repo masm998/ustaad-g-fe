@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common'
 import { UserDashboardPage} from './user-dashboard/user-dashboard.page';
 
-
 const routes: Routes = [
   {
     path: '',
-    redirectTo :'dashboard'
+    redirectTo :'base/tabs/UserHome',
+    pathMatch: 'full'
   },
   {
     path: 'dashboard',

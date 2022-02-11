@@ -17,7 +17,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       setTimeout(() => {
-        this.splashScreen.hide();
+        // this.splashScreen.hide();
       }, 1000);
 
     });

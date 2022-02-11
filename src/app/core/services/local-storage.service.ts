@@ -46,7 +46,10 @@ export class LocalStorageService {
   }
 
   getLocation() {
-    
+    return {
+      latitude: localStorage.getItem('latitude'),
+      longitude: localStorage.getItem('longitude')
+    }
   }
 
   clearLocalStorage() {

@@ -1,3 +1,55 @@
 <ion-content>
+    <div class="content">
+        <ion-buttons slot="start">
+            <ion-back-button text="" defaultHref="base/tabs/UserHome"></ion-back-button>
+        </ion-buttons>
+        <h2> Create Appointment</h2>
+    </div>
+    <form class="create-app" [formGroup]="createAppointment" (submit)="onCreate()">
+        <ion-row>
+            <ion-col>
+                <ion-select placeholder="*Automobile" formControlName="car">
+                    <ion-select-option>Car Name 1</ion-select-option>
+                    <ion-select-option>Car Name 2</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
 
+        <ion-row>
+            <ion-col>
+                <ion-select placeholder="*Select Service" formControlName="service">
+                    <ion-select-option *ngFor="let service of services" [value]="service.id">{{service.service_name}}</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-textarea placeholder="*Description" formControlName="description"></ion-textarea>
+            <!-- <div *ngIf="signUpForm.controls['mobile'].errors && !signUpForm.controls['mobile'].untouched">
+              <div [hidden]="!signUpForm.controls['mobile'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+                Field Value is Required!
+              </div>
+            </div> -->
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>
+            <ion-input type="text" placeholder="*Add Location" (click)="chooseLocation()" formControlName="location"></ion-input>
+            <!-- formControlName="location" -->
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+            <ion-col>
+                <ion-select placeholder="*Appointment Time" formControlName="time">
+                    <ion-select-option>Urgent</ion-select-option>
+                    <ion-select-option>Schedule Appointment</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
+
+        <button type="submit">Create</button>
+    </form>
 </ion-content>

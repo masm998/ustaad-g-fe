@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: ()=> import('./ustaad-profile/ustaad-profile.module').then( m => m.UstaadProfilePageModule),
-    canActivate: [UstaadAuthGuard]
+    // canActivate: [UstaadAuthGuard]
   },
   {
     path: 'ustaad-dashboard',
     component: UstaadDashboardPage,
-    canActivate: [UstaadAuthGuard]
+    // canActivate: [UstaadAuthGuard]
   }
 
 ];

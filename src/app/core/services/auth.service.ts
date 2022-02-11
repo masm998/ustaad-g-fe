@@ -33,11 +33,9 @@ export class AuthService {
   }
 
   public createUser(userData) {
-    console.log(userData)
     return new Observable((observer) => {
       this.apiService.sendPostRequest('user', userData)
       .subscribe((res: any) => {
-        console.log(res)
         if(res.success) {
           // this.localStorageService.saveCredentials(res.user_id, res.first_name, res.last_name, res.mobile, res.email, res.token, res.role, res.profile_pic)
           observer.next(res)

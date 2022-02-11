@@ -83,27 +83,27 @@
       </ion-col>
     </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <ion-input type="text" placeholder="*Expertise" formControlName="expertise"></ion-input>
-            <div class="input-line"></div>
-            <div *ngIf="signUpForm.controls['expertise'].errors && !signUpForm.controls['expertise'].untouched">
-              <div [hidden]="!signUpForm.controls['expertise'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
-                Field Value is Required!
-              </div>
+      <ion-row>
+        <ion-col>
+          <ion-input type="text" placeholder="*Expertise" formControlName="expertise"></ion-input>
+          <div class="input-line"></div>
+          <div *ngIf="signUpForm.controls['expertise'].errors && !signUpForm.controls['expertise'].untouched">
+            <div [hidden]="!signUpForm.controls['expertise'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+              Field Value is Required!
             </div>
-          </ion-col>
-        </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
 
-          <ion-row>
-            <ion-col>
-              <ion-select placeholder="*Use as" formControlName="useas">
-              <ion-select-option>Individual</ion-select-option>
-              <ion-select-option>Company</ion-select-option>
-              </ion-select>
-            <div class="input-line"></div>
-            </ion-col>
-            </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-select placeholder="*Use as" formControlName="useas">
+          <ion-select-option>Individual</ion-select-option>
+          <ion-select-option>Company</ion-select-option>
+          </ion-select>
+          <div class="input-line"></div>
+        </ion-col>
+      </ion-row>
     <button type="submit">
       Sign Up
     </button>
