@@ -19,17 +19,29 @@ h3, h4 {
     }
 }
 
+.swiper-slide {
+    font-size: 21px !important;
+}
+
+ion-slide {
+    width: 26% !important;
+    margin: 1%;
+}
+
 .service-logo {
     border: 1px solid darkgray;
     border-radius: 50%;
-    width: 60%;
-    height: 51%;
-    // font-size: 345%;
+    width: 91%;
+}
+
+.service-name {
+    font-size: 68%;
 }
 
 .service-div {
     text-align: center;
 }
+
 .app-div {
     border: 1px solid #707070;
     border-radius: 25px;
@@ -59,7 +71,7 @@ h3, h4 {
 
 .star-div{
     margin-left: 24%;
-    margin-top: 3%;
+    padding-top: 4%;
 }
 
 .see-all-text {
@@ -70,17 +82,19 @@ h3, h4 {
 }
 
 .appt-div {
-    border: 1px solid darkgray;
-    border-radius: 20px;
+    border: 1px solid #707070;
+    border-radius: 25px;
     width: 85%;
-    font-size: 110%;
+    font-size: 87%;
     margin-left: 4%;
     text-align: center;
+    background: #E4E4E4;
 }
 button{
     text-align: center;
-    background-color:#28ba62;
+    background-color: #B7933A;
     padding: 2%;
     border-radius: 15px;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
+    width: 47%;
 }

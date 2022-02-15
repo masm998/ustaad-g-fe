@@ -13,7 +13,11 @@ const routes: Routes = [
     path: 'ustaad-dashboard',
     component: UstaadDashboardPage,
     // canActivate: [UstaadAuthGuard]
+  },  {
+    path: 'my-inventory',
+    loadChildren: () => import('./my-inventory/my-inventory.module').then( m => m.MyInventoryPageModule)
   }
+
 
 ];
 

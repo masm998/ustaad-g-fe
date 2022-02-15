@@ -9,6 +9,10 @@ import { config } from 'src/environments/environment';
   styleUrls: ['./user-dashboard.page.scss'],
 })
 export class UserDashboardPage implements OnInit {
+  slideOpts = {
+    initialSlide: 0.5,
+    speed: 600
+  };
   home = false
   prefix = config.backend_url
   servicesList: any
