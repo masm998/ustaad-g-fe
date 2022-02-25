@@ -1,17 +1,17 @@
 <ion-content>
   <div class="content">
     <ion-buttons slot="start">
-      <ion-back-button ></ion-back-button>
-    </ion-buttons>
+      <ion-back-button text="" defaultHref="customer/automobile"></ion-back-button>
+  </ion-buttons>
     <h2> Automobile Details</h2>
   </div>
   <div class= 'car-image'>
     <img src ='../../../assets/car.jpg' alt= 'No Image'>
   </div>
   <div>
-    <p>Type: car </p>
-    <p>Name: Bently Flying Spur</p>
-    <p>Model: 2020</p>
-    <p>Color: silver</p>
+    <p>Type: {{automobileDetails?.type}} </p>
+    <p>Name: {{automobileDetails?.car_name}}</p>
+    <p>Model: {{automobileDetails?.car_model}}</p>
+    <p>Color: {{automobileDetails?.car_color}}</p>
   </div>
 </ion-content>

@@ -9,7 +9,34 @@ export class AutomobileService {
   constructor(private apiService: ApiService) { }
 
   public getAutomobileForAppointment() {
-    return this.apiService.sendGetRequest('automobile')
-    
+    const params = {
+      userAutomobile: true
+    }
+    return this.apiService.sendGetRequestParams('automobile', params)
+  }
+  public getCarType(){
+    const params = {
+      automobileType: true
+    }
+    return this.apiService.sendGetRequestParams("automobile", params)
+  }
+
+  public addAutomobile(input) {
+    return this.apiService.sendPostRequest('automobile', input)
+  }
+
+  public getUserAutomobile() {
+    const params = {
+      userAutomobileList: true
+    }
+    return this.apiService.sendGetRequestParams('automobile', params)
+  }
+
+  public getAutomobileDetails(carId) {
+    const params = {
+      car_id: carId,
+      automobileDetails: true
+    }
+    return this.apiService.sendGetRequestParams('automobile', params)
   }
 }

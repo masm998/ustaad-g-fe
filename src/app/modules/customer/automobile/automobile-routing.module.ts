@@ -3,15 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AutomobilePage } from './automobile.page';
 import { AutomobileDetailsPage } from './automobile-details/automobile-details.page';
+import { AddAutomobilePage } from './add-automobile/add-automobile.page';
 const routes: Routes = [
   {
     path: '',
     component: AutomobilePage
   },
   {
-    path: 'automobile-details',
+    path: 'automobile-details/:carId',
     component: AutomobileDetailsPage
+  },
+  {
+    path: 'add-automobile',
+    component: AddAutomobilePage
   }
+
 ];
 
 @NgModule({

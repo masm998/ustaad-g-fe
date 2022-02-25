@@ -23,6 +23,10 @@ h3, h4 {
     font-size: 21px !important;
 }
 
+ion-slides {
+    margin-bottom: -5% !important;
+}
+
 ion-slide {
     width: 26% !important;
     margin: 1%;
@@ -31,7 +35,7 @@ ion-slide {
 .service-logo {
     border: 1px solid darkgray;
     border-radius: 50%;
-    width: 91%;
+    width: 78%;
 }
 
 .service-name {
@@ -48,7 +52,7 @@ ion-slide {
     display: flex;
     width: 85%;
     margin-left: 4%;
-    margin-bottom: 8%;
+    margin-bottom: 3%;
     background: #E4E4E4;
 }
 
@@ -60,10 +64,7 @@ ion-slide {
     margin-top: 24px;
 }
 
-// p {
-//     font-size: 80%;
-//     margin-top: 5%;
-// }
+
 
 .service-name2 {
     margin-top: 20%;
@@ -79,6 +80,7 @@ ion-slide {
     margin-right: 5%;
     font-size: 54%;
     text-decoration: underline;
+    margin-top: -2%;
 }
 
 .appt-div {

@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="content">
+      <ion-buttons slot="start">
+          <ion-back-button text="" defaultHref="customer/automobile"></ion-back-button>
+      </ion-buttons>
+      <h2> Add Automobile</h2>
+  </div>
+  <form class="add-car" [formGroup]="addAutomobile" (submit)="onCreate()">
+    <ion-row class="image">
+      <ion-col>
+          <img src="" alt="Add Image"> 
+      </ion-col>
+  </ion-row>
+    
+    
+    <ion-row>
+          <ion-col>
+              <ion-select placeholder="Select Type" formControlName="car_type">
+                  <ion-select-option *ngFor="let type of carTypes" [value]="type.id">{{type.type}}</ion-select-option>
+              </ion-select>
+          </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col>
+              <ion-input type="text" placeholder="*Name" formControlName="name"></ion-input>
+          </ion-col>
+      </ion-row>
+     
+      <ion-row>
+        <ion-col>
+          <ion-input type="text" placeholder="*Model" formControlName="model"></ion-input>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col>
+          <ion-input type="text" placeholder="*Color" formControlName="color"></ion-input>
+        </ion-col>
+      </ion-row>
+     
+
+      <button type="submit">Add</button>
+  </form>
+</ion-content>

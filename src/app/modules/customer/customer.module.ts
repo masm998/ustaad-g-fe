@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { CustomerRoutingModule } from './customer-routing.module';
 import { IonicModule } from '@ionic/angular';
-import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     IonicModule
   ],
   providers: [
-    Geolocation
+    Geolocation,
+    NativeGeocoder
   ]
 })
 export class CustomerModule { }

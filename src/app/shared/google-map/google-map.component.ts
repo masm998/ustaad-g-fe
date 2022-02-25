@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2, Output, EventEmitter, Input } from '@angular/core';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { Platform, ModalController } from '@ionic/angular';
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
+import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { Subscription } from 'rxjs';
 
@@ -194,17 +194,16 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
         //   lat: 33.69929640
         // }
 
-        this.globalMaps = new googleMaps.Map(mapEl, {
+        this.globalMaps = new this.globalGoogleMaps.Map(mapEl, {
           center: center,
           zoom: 15,
           streetViewControl: false,
-          mapTypeId: 'roadmap',
-          mapTypeControl: false
+          mapTypeId: 'roadmap'
         });
-        console.log('global: ', this.globalMaps)
+        console.log('global: ', this.globalGoogleMaps)
 
         //Make the map visible
-        googleMaps.event.addListenerOnce(this.globalMaps, 'idle', () => {
+        this.globalGoogleMaps.event.addListenerOnce(this.globalMaps, 'idle', () => {
           this.renderer.addClass(mapEl, 'visible');
         });
 
@@ -279,6 +278,7 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
     }
 
     if (!this.globalGoogleMaps) {
+      console.log('if true')
       setTimeout(() => {
         this.drawMarkers(markers, attempt + 1)
       }, 1000);

@@ -7,26 +7,22 @@
     <h2> My Garage </h2>
   </div>
  
-  <div (click)='onclick()'>
-    <div class="row">
+  <div *ngFor="let automobile of automobileList">
+    <div class="row" (click)='onclick(automobile.id)'>
       <div class ='col-4'>
         <img src ='../../../../assets/car.jpg'>
       </div>
       <div class ='col-8'>
-        <p>Name: Bently Flying Spur</p>
-        <p>Type: Car</p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class ='col-4'>
-        <img src ='../../../../assets/gt.jpg'>
-      </div>
-      <div class ='col-8'>
-        <p>Name: Mercedes Amg GT </p>
-        <p>Type: Car</p>
+        <p>Name: {{automobile.car_name}}</p>
+        <p>Type: {{automobile.type}}</p>
       </div>
     </div>
   </div>
   
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">  
+    <ion-fab-button (click)="onAdd()">  
+      <ion-icon name="add"></ion-icon>  
+    </ion-fab-button>  
+  </ion-fab>  
+
 </ion-content>

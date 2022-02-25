@@ -1,0 +1,37 @@
+.content{
+    display: flex;
+    color: #707070;
+}
+
+.add-car {
+    width: 76%;
+    margin: 8%;
+    margin-left: 11%;
+    height: 100%;
+}
+
+ion-select, ion-input, ion-textarea {
+    background: #E4E4E5;
+    border: 1px solid #707070;
+    border-radius: 12px;
+}
+
+ion-row {
+    margin-top: 5%;
+}
+
+button {
+    margin-top: 5%;
+    background: #707070;
+    width: 19%;
+    height: 24px;
+}
+.image{
+    border: 1px solid #707070;
+    height: 15%;
+    background: #e4e4e4;
+    text-align: center;
+    padding: 45px;
+    width: 92%;
+    margin-left: 4%;
+}

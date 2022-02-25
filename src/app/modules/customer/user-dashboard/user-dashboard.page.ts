@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { config } from 'src/environments/environment';
@@ -17,7 +18,7 @@ export class UserDashboardPage implements OnInit {
   prefix = config.backend_url
   servicesList: any
 
-  constructor(private authService: AuthService, private userService: UserService) {
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) {
    }
 
   ngOnInit() {
@@ -32,5 +33,9 @@ export class UserDashboardPage implements OnInit {
         console.log(this.servicesList)
       }
     })
+  }
+
+  onCreateAppointment() {
+    this.router.navigate(['customer/appointment/create-appointment'])
   }
 }

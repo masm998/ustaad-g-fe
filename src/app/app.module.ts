@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CoreModule } from './core/core.module';
-import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
-import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { BasePageModule } from './modules/base/base.module';
 
 @NgModule({
