@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-location',
@@ -6,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./select-location.component.scss'],
 })
 export class SelectLocationComponent implements OnInit {
-
-  constructor() { }
+  location: any
+  constructor(public modalController: ModalController, private router: Router) { }
 
   ngOnInit() {}
 
-  returnedResult(event) {
-    console.log(event)
+  async returnedResult(event) {
+    console.log('event11111 ',event)
+    this.location = event
+  }
+
+  async onAddLocation() {
+    console.log('lllllll: ', this.location)
   }
 
 }

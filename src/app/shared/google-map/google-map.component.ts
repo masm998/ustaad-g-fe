@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2, Output, EventEmitter, Input } from '@angular/core';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { Platform, ModalController } from '@ionic/angular';
-import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { Subscription } from 'rxjs';
 
@@ -30,30 +30,25 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
   globalMarker;
 
   private apiKey = 'AIzaSyAyKR3VHX4FzctdpIsjR4mOMR8VV3CpQmM'
+  clickable = true;
+  searchable = true;
 
   constructor(private renderer: Renderer2, private toastService: ToastService, private modalController: ModalController,
-    private nativeGeocoder: NativeGeocoder, private localstorageservice: LocalStorageService, private platform: Platform) { }
+    private localstorageservice: LocalStorageService, private platform: Platform) { }
 
   ngOnInit() {
     this.currentLocation = this.localstorageservice.getLocation()
-    console.log('current location: ', this.currentLocation)
 
     this.subscription = this.platform.backButton.subscribe(()=>{
       this.modalController.dismiss()
     });
   }
 
-  // @Input('clickable') 
-  clickable = true;
-
-  // @Input('searchable') searchable;
-  searchable = true;
-
   @Input('center')
   set center(location) {
     console.log(">>> center location is set to: ", location);
     if (this.globalGoogleMaps) {
-      this.globalGoogleMaps.setCenter(location)
+      this.globalGoogleMaps.setCenter(location);
     }
   }
 
@@ -64,8 +59,7 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
     this.drawMarkers(markers);
   }
 
-  //Main map function(logic)
-   initializeGoogleMap(): Promise<any> {
+  initializeGoogleMap(): Promise<any> {
     const win = window as any;
     const googleModule = win.google;
 
@@ -100,53 +94,46 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
     let inputElement = document.createElement("input");
     inputElement.setAttribute("id", "pac-input");
     inputElement.setAttribute("placeholder", "Search a location");
-    inputElement.style.outline = 'none';
-    inputElement.style.border = 'none'
+    inputElement.className = 'map-searchbar'
 
-    let searchBox = new this.globalGoogleMaps.places.SearchBox(inputElement);
-    this.globalMaps.controls[this.globalGoogleMaps.ControlPosition.TOP_LEFT].push(inputElement);
+    // this.globalMaps.controls[this.globalGoogleMaps.ControlPosition.TOP_LEFT].push(inputElement);
 
     // Bias the SearchBox results towards current map's viewport.
-    this.globalMaps.addListener('bounds_changed', () => {
-      searchBox.setBounds(this.globalMaps.getBounds());
-    });
+    // this.globalMaps.addListener('bounds_changed', () => {
+    //   searchBox.setBounds(this.globalMaps.getBounds());
+    // });
 
-    searchBox.addListener('places_changed', () => {
-      var places = searchBox.getPlaces();
-      console.log('place: ', places)
+    // searchBox.addListener('places_changed', () => {
+    //   var places = searchBox.getPlaces();
+    //   console.log('place: ', places)
 
-      // For each place, get the icon, name and location.
-      places.forEach((place) => {
-        if (!place.geometry) {
-          console.log("Returned place contains no geometry");
-          return;
-        }
+    //   // For each place, get the icon, name and location.
+    //   places.forEach((place) => {
+    //     if (!place.geometry) {
+    //       console.log("Returned place contains no geometry");
+    //       return;
+    //     }
 
-        if (this.clickable) {
-          this.clearMarkers();
-        }
+    //     if (this.clickable) {
+    //       this.clearMarkers();
+    //     }
 
-        // this.selected.emit(
-        //   {
-        //     longitude: place.geometry.location.lng(),
-        //     latitude: place.geometry.location.lat()
-        //   }
-        // );
+        this.selected.emit(this.currentLocation);
 
-        const location = {
-          longitude: parseFloat(place.geometry.location.lng()),
-          latitude: parseFloat(place.geometry.location.lat())
-        };
-        // console.log('location of marker: ', location)
-        const locationObj = new this.globalGoogleMaps.LatLng(location.latitude, location.longitude);
+    //     const location = {
+    //       longitude: parseFloat(place.geometry.location.lng()),
+    //       latitude: parseFloat(place.geometry.location.lat())
+    //     };
+    //     // console.log('location of marker: ', location)
+    //     const locationObj = new this.globalGoogleMaps.LatLng(location.latitude, location.longitude);
 
-        this.globalMaps.setZoom(15);
-        this.globalMaps.setCenter(locationObj);
+    //     this.globalMaps.setZoom(15);
+    //     this.globalMaps.setCenter(locationObj);
 
-        this.placeMarker(location, undefined, this.globalGoogleMaps);
-        // this.globalMaps.setCenter(place.geometry.location);
-      });
-    });
+    //     this.placeMarker(location, undefined, this.globalGoogleMaps);
+    //     // this.globalMaps.setCenter(place.geometry.location);
+    //   });
+    // });
   }
 
   makeMapClickable() {
@@ -177,10 +164,8 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
   drawMap() {
     this.initializeGoogleMap()
       .then(googleMaps => {
-        console.log('map: ', googleMaps)
         //Get native element with name map
         const mapEl = this.mapElementRef.nativeElement;
-        console.log('mapE1: ', mapEl)
         this.globalGoogleMaps = googleMaps;
 
         let center = 
@@ -194,33 +179,33 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
         //   lat: 33.69929640
         // }
 
-        this.globalMaps = new this.globalGoogleMaps.Map(mapEl, {
+        this.globalMaps = new googleMaps.Map(mapEl, {
           center: center,
           zoom: 15,
           streetViewControl: false,
-          mapTypeId: 'roadmap'
+          mapTypeId: 'roadmap',
+          mapTypeControl: false
         });
-        console.log('global: ', this.globalGoogleMaps)
 
         //Make the map visible
-        this.globalGoogleMaps.event.addListenerOnce(this.globalMaps, 'idle', () => {
+        googleMaps.event.addListenerOnce(this.globalMaps, 'idle', () => {
           this.renderer.addClass(mapEl, 'visible');
         });
 
-        let  buttonElement = document.createElement("input")
+        let buttonElement = document.createElement("input")
         buttonElement.type = 'button'
         buttonElement.value = 'Next'
-        buttonElement.style.backgroundColor ='#0A04FC'
-        buttonElement.style.marginBottom ='65px'
+        buttonElement.style.background ='#707070'
+        buttonElement.style.marginBottom ='19px'
         buttonElement.style.width ='30%'
         buttonElement.style.height ='40px'
         buttonElement.style.fontSize ='16px'  
         buttonElement.style.border ='none'
         buttonElement.style.borderRadius ='6px' 
         buttonElement.style.color ='white'      
-        buttonElement.onclick = () => {
-          this.onCancel()
-        }
+        // buttonElement.onclick = () => {
+        //   this.onCancel()
+        // }
 
         // let imageElement = document.createElement("ion-icon");
         // imageElement.name = 'close-circle'
@@ -229,9 +214,9 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
         // imageElement.onclick = () => {
         //   this.onCancel()
         // }
-        // // imageElement.id = 'hd-img'
+        // imageElement.id = 'hd-img'
 
-        // this.globalMaps.controls[this.globalGoogleMaps.ControlPosition.TOP_LEFT].push(imageElement);
+        // this.globalMaps.controls[this.globalGoogleMaps.ControlPosition.BOTTOM].push(buttonElement);
 
         this.placeMarker(this.currentLocation, undefined, this.globalGoogleMaps);
 
@@ -278,7 +263,6 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
     }
 
     if (!this.globalGoogleMaps) {
-      console.log('if true')
       setTimeout(() => {
         this.drawMarkers(markers, attempt + 1)
       }, 1000);
@@ -293,6 +277,7 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
 
   placeMarker(location, marker, googleMaps) {
     console.log("Step 1: ", location);
+    this.currentLocation = location;
 
     if (!googleMaps) {
       return;
@@ -314,10 +299,10 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
       marker.setPosition(locationObj);
     }
 
-    let options: NativeGeocoderOptions = {
-      useLocale: true,
-      maxResults: 5
-    };
+    // let options: NativeGeocoderOptions = {
+    //   useLocale: true,
+    //   maxResults: 5
+    // };
 
     // this.nativeGeocoder.reverseGeocode(location.latitude, location.longitude, options)
     // .then((result: NativeGeocoderResult[]) => {
@@ -330,14 +315,7 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
     //   this.selectLocationVal.area = address.subLocality
     //   console.log('address: ', this.selectLocationVal)
 
-    //   this.selected.emit(
-    //     {
-    //       latitude: this.selectLocationVal.latitude,
-    //       longitude: this.selectLocationVal.longitude,
-    //       country: this.selectLocationVal.country,
-    //       city: this.selectLocationVal.city,
-    //       area: this.selectLocationVal.area
-    //     });
+      this.selected.emit(location);
     // })
     // .catch((error: any) => {
     //   console.log(error)
@@ -369,9 +347,10 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onCancel() {
-    this.modalController.dismiss(this.selectLocationVal)
-  }
+  // onCancel() {
+  //   console.log('check: ', this.currentLocation)
+  //   this.modalController.dismiss(this.currentLocation)
+  // }
 
   ionViewDidLeave() {
     this.modalController.dismiss()

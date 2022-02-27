@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { GoogleMapComponent } from './shared/google-map/google-map.component';
 import { SelectLocationComponent } from './shared/select-location/select-location.component';
 
 
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'select-location',
     component: SelectLocationComponent
+  },
+  {
+    path: 'map',
+    component: GoogleMapComponent
   }
 
 ];

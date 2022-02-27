@@ -43,7 +43,6 @@ export class ApiService {
 
   public sendPostRequest(path, data) {
     return new Observable((observer) => {
-      console.log('headers: ', this.headers)
       this.http.post(this.prefix + path, data, {headers: this.headers})
       .subscribe((res) => {
         observer.next(res)

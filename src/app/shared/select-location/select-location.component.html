@@ -1,1 +1,13 @@
-<app-google-map (selected)="returnedResult($event)"></app-google-map>
+<ion-content>
+    <div class="content">
+        <ion-buttons slot="start">
+            <ion-back-button text="" defaultHref="select-location"></ion-back-button>
+        </ion-buttons>
+        <h2>Select Location</h2>
+    </div>
+    <app-google-map (selected)="returnedResult($event)"></app-google-map>
+
+    <button (click)="onAddLocation()">
+        Add Location
+    </button>
+</ion-content>

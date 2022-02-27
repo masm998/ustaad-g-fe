@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 import { AppointmentPageRoutingModule } from './appointment-routing.module';
 import { CreateAppointmentPage } from './create-appointment/create-appointment.page';
 import { AppointmentPage } from './appointment.page';
@@ -14,9 +14,12 @@ import { AppointmentPage } from './appointment.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    AppointmentPageRoutingModule
+    AppointmentPageRoutingModule,
+    SharedModule
   ],
-  declarations: [AppointmentPage,
-  CreateAppointmentPage]
+  declarations: [
+    AppointmentPage,
+    CreateAppointmentPage,
+  ]
 })
 export class AppointmentPageModule {}

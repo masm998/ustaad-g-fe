@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AppointmentService } from 'src/app/core/services/appointment.service';
 import { AutomobileService } from 'src/app/core/services/automobile.service';
 import { UserService } from 'src/app/core/services/user.service';
+import { ModalController } from '@ionic/angular';
+import { SelectLocationComponent } from 'src/app/shared/select-location/select-location.component';
+import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'app-create-appointment',
@@ -14,8 +17,10 @@ export class CreateAppointmentPage implements OnInit {
   createAppointment: FormGroup
   automobiles : [] 
   services : []
-  constructor(private router: Router, private appointmentService: AppointmentService,
-     private automobileService : AutomobileService, private userService: UserService) { }
+  location: any
+  constructor(private router: Router, private appointmentService: AppointmentService, private modalController: ModalController,
+     private automobileService : AutomobileService, private userService: UserService, private activatedRoute: ActivatedRoute,
+     private toastService: ToastService) { }
 
   ngOnInit() {
     this.createAppointment = new FormGroup({
@@ -47,9 +52,17 @@ export class CreateAppointmentPage implements OnInit {
     })
   }
 
-  chooseLocation() {
-    console.log('location clicked')
-    this.router.navigate(['select-location'])
+  async chooseLocation() {
+    const modal = await this.modalController.create({
+      component: SelectLocationComponent
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      this.location = dataReturned.data;
+      console.log('loccccc: ', this.location)
+    });
+
+    return await modal.present();
   }
 
   onCreate() {
@@ -60,6 +73,9 @@ export class CreateAppointmentPage implements OnInit {
           console.log(res)
         }
       })
+    }
+    else {
+      this.toastService.loginFailureToast('Invalid Form Values')
     }
   }
 }
