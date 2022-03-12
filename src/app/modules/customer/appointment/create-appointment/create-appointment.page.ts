@@ -28,7 +28,7 @@ export class CreateAppointmentPage implements OnInit {
       service: new FormControl(''),
       description: new FormControl('', [Validators.required]),
       location: new FormControl({value: '', disabled: true}, [Validators.required]),
-      time: new FormControl('', [Validators.required]),
+      type: new FormControl('', [Validators.required]),
     })
     this.getUserAutomobiles()
     this.getServices()

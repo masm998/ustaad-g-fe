@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2, Output, EventEmitter, Input } from '@angular/core';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { Platform, ModalController } from '@ionic/angular';
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { Subscription } from 'rxjs';
 
@@ -34,10 +34,11 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
   searchable = true;
 
   constructor(private renderer: Renderer2, private toastService: ToastService, private modalController: ModalController,
-    private localstorageservice: LocalStorageService, private platform: Platform) { }
+    private localstorageservice: LocalStorageService, private platform: Platform, private nativeGeocoder: NativeGeocoder) { }
 
   ngOnInit() {
     this.currentLocation = this.localstorageservice.getLocation()
+    console.log('current: ', this.currentLocation)
 
     this.subscription = this.platform.backButton.subscribe(()=>{
       this.modalController.dismiss()
@@ -46,7 +47,6 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
 
   @Input('center')
   set center(location) {
-    console.log(">>> center location is set to: ", location);
     if (this.globalGoogleMaps) {
       this.globalGoogleMaps.setCenter(location);
     }
@@ -54,7 +54,6 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
 
   @Input('markers')
   set markers(markers) {
-    console.log(">>> Markers value set to: ", markers);
 
     this.drawMarkers(markers);
   }
@@ -276,16 +275,13 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
   }
 
   placeMarker(location, marker, googleMaps) {
-    console.log("Step 1: ", location);
     this.currentLocation = location;
 
     if (!googleMaps) {
       return;
     }
-    console.log("Step 2");
 
     const locationObj = new this.globalGoogleMaps.LatLng(location.latitude, location.longitude);
-    console.log("loc: ", locationObj);
 
     if (marker == undefined) {
       marker = new this.globalGoogleMaps.Marker({
@@ -299,29 +295,29 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
       marker.setPosition(locationObj);
     }
 
-    // let options: NativeGeocoderOptions = {
-    //   useLocale: true,
-    //   maxResults: 5
-    // };
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 5
+    };
 
-    // this.nativeGeocoder.reverseGeocode(location.latitude, location.longitude, options)
-    // .then((result: NativeGeocoderResult[]) => {
-    //   let address = result[0]
-    //   // console.log('address: ', address)
-    //   this.selectLocationVal.latitude = address.latitude
-    //   this.selectLocationVal.longitude = address.longitude
-    //   this.selectLocationVal.country = address.countryName
-    //   this.selectLocationVal.city = address.locality
-    //   this.selectLocationVal.area = address.subLocality
-    //   console.log('address: ', this.selectLocationVal)
+    this.nativeGeocoder.reverseGeocode(location.latitude, location.longitude, options)
+    .then((result: NativeGeocoderResult[]) => {
+      let address = result[0]
+      console.log('address: ', address)
+      this.selectLocationVal.latitude = address.latitude
+      this.selectLocationVal.longitude = address.longitude
+      this.selectLocationVal.country = address.countryName
+      this.selectLocationVal.city = address.locality
+      this.selectLocationVal.area = address.subLocality
+      console.log('address: ', this.selectLocationVal)
 
       this.selected.emit(location);
-    // })
-    // .catch((error: any) => {
-    //   console.log(error)
-    //   this.selectLocationVal.latitude = location.latitude
-    //   this.selectLocationVal.longitude = location.longitude
-    // });
+    })
+    .catch((error: any) => {
+      console.log(error)
+      this.selectLocationVal.latitude = location.latitude
+      this.selectLocationVal.longitude = location.longitude
+    });
 
     this.markersArray.push(marker);
     console.log('marker: ', locationObj)

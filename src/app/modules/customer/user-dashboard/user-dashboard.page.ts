@@ -30,12 +30,15 @@ export class UserDashboardPage implements OnInit {
     .subscribe((res: any) => {
       if(res.success) {
         this.servicesList = res.data
-        console.log(this.servicesList)
       }
     })
   }
 
   onCreateAppointment() {
     this.router.navigate(['customer/appointment/create-appointment'])
+  }
+
+  onClickService(id) {
+    this.router.navigate(['/service-detail', id])
   }
 }

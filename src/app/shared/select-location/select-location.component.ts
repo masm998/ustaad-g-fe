@@ -14,12 +14,11 @@ export class SelectLocationComponent implements OnInit {
   ngOnInit() {}
 
   async returnedResult(event) {
-    console.log('event11111 ',event)
     this.location = event
   }
 
   async onAddLocation() {
-    console.log('lllllll: ', this.location)
+    this.modalController.dismiss(this.location)
   }
 
 }

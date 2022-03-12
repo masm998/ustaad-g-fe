@@ -5,7 +5,7 @@
     <h4>Services</h4>
     <ion-slides [options]="slideOpts">
         <ion-slide *ngFor="let service of servicesList">
-          <div class="service-div">
+          <div class="service-div" (click)="onClickService(service.id)">
             <img class="service-logo" [src]="prefix + service?.image">
             <p class="service-name">{{service?.service_name}}</p>
           </div>

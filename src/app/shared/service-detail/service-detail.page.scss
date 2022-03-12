@@ -1,0 +1,48 @@
+.content {
+    display: flex;
+}
+div{
+    font-size: 113%;
+    color: #707070;
+}
+.ion{
+    margin-right: 10%;
+}
+span{
+    margin-left: 4%;
+
+}
+h2{
+    font-weight: 700;
+    font-size: 157%;
+}
+.border{
+    background: #E4E4E5;
+    border: 1px solid #707070;
+    border-radius: 12px;
+    height: 17%;
+    width: 94%;
+    margin: 3%;
+}
+h4{
+    
+    font-size: 149%;
+    margin: 3%;
+}
+.service-logo {
+    border: 2px solid darkgray;
+    border-radius: 50%;
+    font-size: 406%;
+}
+.swiper-slide {
+    font-size: 21px !important;
+}
+
+ion-slides {
+    margin-bottom: -5% !important;
+}
+
+ion-slide {
+    width: 26% !important;
+    margin: 1%;
+}

@@ -35,7 +35,12 @@ const routes: Routes = [
   {
     path: 'map',
     component: GoogleMapComponent
+  },
+  {
+    path: 'service-detail/:id',
+    loadChildren: () => import('./shared/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
   }
+
 
 ];
 
