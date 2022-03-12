@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AppointmentDetailPage } from './shared/appointment-detail/appointment-detail.page';
 import { GoogleMapComponent } from './shared/google-map/google-map.component';
 import { SelectLocationComponent } from './shared/select-location/select-location.component';
+import { ServiceDetailPage } from './shared/service-detail/service-detail.page';
 
 
 const routes: Routes = [
@@ -38,8 +40,13 @@ const routes: Routes = [
   },
   {
     path: 'service-detail/:id',
-    loadChildren: () => import('./shared/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
+    component: ServiceDetailPage
+  },
+  {
+    path: 'appointment-detail',
+    component: AppointmentDetailPage
   }
+
 
 
 ];

@@ -5,6 +5,9 @@ div{
     font-size: 113%;
     color: #707070;
 }
+.row {
+    margin-top: 3%;
+}
 .ion{
     margin-right: 10%;
 }
@@ -20,29 +23,43 @@ h2{
     background: #E4E4E5;
     border: 1px solid #707070;
     border-radius: 12px;
-    height: 17%;
-    width: 94%;
-    margin: 3%;
+    height: 22%;
+    width: 87%;
+    margin-left: 6%;
+    padding: 3%;
 }
 h4{
     
     font-size: 149%;
     margin: 3%;
+    color: #707070;
 }
 .service-logo {
     border: 2px solid darkgray;
     border-radius: 50%;
     font-size: 406%;
 }
-.swiper-slide {
-    font-size: 21px !important;
+
+.service-img{
+    border: 2px solid darkgray;
+    border-radius: 50%;
+    width: 30%;
 }
 
-ion-slides {
-    margin-bottom: -5% !important;
+.swiper-slide {
+    font-size: 17px !important;
 }
 
 ion-slide {
-    width: 26% !important;
-    margin: 1%;
+    width: 100% !important;
+    margin-left: 2%;
+    margin-top: 3%;
+}
+.service-div {
+    width: 25%;
+}
+.mechanic-logo {
+    border: 1px solid darkgray;
+    border-radius: 50%;
+    width: 50%;
 }

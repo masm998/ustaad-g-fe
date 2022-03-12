@@ -24,14 +24,18 @@ export class SignInPage implements OnInit {
     if(this.signInForm.valid) {
       this.authService.login(this.signInForm.value.username, this.signInForm.value.password)
       .subscribe((res) => {
-        console.log(res)
         if(res.success){
-          if(res.user.role == 3){
-            this.router.navigate(['base/tabs/UserHome'])
+          console.log(res)
+          if(res.user.role === 3){
+            console.log('role is 3')
+            this.router.navigate(['/base/tabs/UserHome'])
           }
-          else if(res.user.role == 2) {
-            this.router.navigate(['base/tabs/UstaadHome'])
+          else if(res.user.role === 2) {
+            this.router.navigate(['/base/tabs/UstaadHome'])
           }
+        }
+        else {
+          console.log('not success: ', res)
         }
       })
     }

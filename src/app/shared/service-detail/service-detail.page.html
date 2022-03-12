@@ -11,34 +11,35 @@
     <div class="col-1"></div>
     <div class="col-10">
       <div class="ion-text-center">
-        <ion-icon class="service-logo ion-text-center" name="person"></ion-icon>
+        <ion-icon *ngIf="!serviceDetail?.image" class="service-logo ion-text-center" name="person"></ion-icon>
+        <img *ngIf="serviceDetail?.image" class="service-img" [src]="prefix + serviceDetail.image">
       </div>
     </div>
-    <h4 class="ion-text-center">Car Wash</h4>
+    <h4 class="ion-text-center">{{serviceDetail?.service_name}}</h4>
   </div>
   
-
   <h4>About</h4>
   <div class="border">
-</div>
+    {{serviceDetail?.description}}
+  </div>
 <h4>Related Mechanics</h4>
 
   <ion-slides [options]="slideOpts">
     <ion-slide>
       <div class="service-div">
-        <img class="service-logo" src="../../../assets/icon/profile.svg">
+        <img class="mechanic-logo" src="../../../assets/icon/profile.svg">
         <p class="service-name">name</p>
       </div>
       <div class="service-div">
-        <img class="service-logo" src="../../../assets/icon/profile.svg">
+        <img class="mechanic-logo" src="../../../assets/icon/profile.svg">
         <p class="service-name">name</p>
       </div>
       <div class="service-div">
-        <img class="service-logo" src="../../../assets/icon/profile.svg">
+        <img class="mechanic-logo" src="../../../assets/icon/profile.svg">
         <p class="service-name">name</p>
       </div>
       <div class="service-div">
-        <img class="service-logo" src="../../../assets/icon/profile.svg">
+        <img class="mechanic-logo" src="../../../assets/icon/profile.svg">
         <p class="service-name">name</p>
       </div>
     </ion-slide>

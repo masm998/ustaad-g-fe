@@ -1,0 +1,21 @@
+
+
+<ion-content>
+  <div class="content">
+    <ion-buttons slot="start">
+        <ion-back-button text="" defaultHref="base/tabs/UserHome"></ion-back-button>
+    </ion-buttons>
+    <h2>Appointment Detail</h2>
+  </div>
+  <div class="row"> 
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="ion-text-center">
+        <ion-icon *ngIf="!serviceDetail?.image" class="service-logo ion-text-center" name="person"></ion-icon>
+        <img *ngIf="serviceDetail?.image" class="service-img" [src]="prefix + serviceDetail.image">
+      </div>
+    </div>
+    <h4 class="ion-text-center">{{serviceDetail?.service_name}}</h4>
+  </div>
+
+</ion-content>
