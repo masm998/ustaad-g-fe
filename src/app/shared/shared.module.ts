@@ -21,11 +21,16 @@ import { AppointmentDetailPage } from './appointment-detail/appointment-detail.p
   ],
   exports: [
     HeaderComponent,
-    SelectLocationComponent
+    SelectLocationComponent,
+    ServiceDetailPage,
+    AppointmentDetailPage
   ],
   providers: [
     Geolocation,
-    NativeGeocoder
+    NativeGeocoder,
+    SelectLocationComponent,
+    ServiceDetailPage,
+    AppointmentDetailPage
   ]
 })
 export class SharedModule { }

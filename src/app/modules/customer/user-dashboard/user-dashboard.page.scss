@@ -1,8 +1,13 @@
 .content{
     color: #707070;
     margin-left: 4%;
+    background-color: white;
 }
-
+.logo{
+    width: 45%;
+    height: 45px;
+    margin-top: 2%;
+}
 h3, h4 {
     font-weight: 600;
 }
@@ -94,7 +99,7 @@ ion-slide {
 }
 button{
     text-align: center;
-    background-color: #B7933A;
+    background-color: rgb(223, 192, 55);
     padding: 2%;
     border-radius: 15px;
     margin-bottom: 3%;

@@ -1,0 +1,30 @@
+.content {
+    display: flex;
+}
+div{
+    font-size: 113%;
+    color: #707070;
+}
+.app-div {
+    border: 1px solid darkgray;
+    border-radius: 25px;
+    display: flex;
+    width: 85%;
+    margin-left: 4%;
+    background: #E4E4E4;
+}
+.app-image {
+    border: 1px solid darkgray;
+    border-radius: 50%;
+    font-size: 221%;
+    margin: 10px;
+    margin-top: 14px;
+}
+p {
+    font-size: 80%;
+    // margin-left: 3%;
+}
+.star-div{
+    margin-left: 24%;
+    margin-top: 3%;
+}

@@ -31,7 +31,6 @@ export class ServiceDetailPage implements OnInit {
     .subscribe((res: any) => {
       if(res.success) {
         this.serviceDetail = res.data[0]
-        console.log(this.serviceDetail)
       }
     })
   }

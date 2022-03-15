@@ -19,7 +19,9 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
     longitude: '',
     country: '',
     city: '',
-    area: ''
+    area: '',
+    street: '',
+    house: ''
   }
 
   currentLocation
@@ -309,9 +311,11 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
       this.selectLocationVal.country = address.countryName
       this.selectLocationVal.city = address.locality
       this.selectLocationVal.area = address.subLocality
+      this.selectLocationVal.street = address.thoroughfare ? address.thoroughfare : null
+      this.selectLocationVal.house = address.subThoroughfare ? address.subThoroughfare : null
       console.log('address: ', this.selectLocationVal)
 
-      this.selected.emit(location);
+      this.selected.emit(this.selectLocationVal);
     })
     .catch((error: any) => {
       console.log(error)

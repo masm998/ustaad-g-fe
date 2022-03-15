@@ -8,7 +8,16 @@ export class AppointmentService {
 
   constructor(private apiService: ApiService) { }
 
-  public createAppointment(data) {
-    return this.apiService.sendPostRequest('appointment', data)
+  public createAppointment(data, location) {
+    const params = {
+      car: data.car,
+      description: data.description,
+      address: data.address,
+      latitude: location.latitude,
+      longitude: location.longitude,
+      service: data.service,
+      type: data.type
+    }
+    return this.apiService.sendPostRequest('appointment', params)
   }
 }

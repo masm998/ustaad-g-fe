@@ -2,5 +2,8 @@
 	"appId": "ustaadG.app",
 	"appName": "ustaad-g",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"server": {
+		"url": "http://192.168.100.84:8100"
+	}
 }

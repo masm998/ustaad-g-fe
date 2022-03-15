@@ -17,12 +17,23 @@ ion-select, ion-input, ion-textarea {
 }
 
 ion-row {
-    margin-top: 5%;
+    margin-top: 15%;
 }
 
-button {
-    margin-top: 5%;
-    background: #707070;
-    width: 19%;
-    height: 24px;
+button{
+    text-align: center;
+    background-color: rgb(114, 114, 111);
+    padding: 2%;
+    border-radius: 15px;
+    margin-bottom: 3%;
+    width: 40%;
+    margin-top: 15%;
+    height: 44px;
+    font-size: larger;
 }
+// button {
+//     margin-top: 5%;
+//     background: #707070;
+//     width: 19%;
+//     height: 24px;
+// }
