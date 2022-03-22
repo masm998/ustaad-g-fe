@@ -2,27 +2,47 @@
   <ion-content>
     <div class="content">
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="base/tabs/UserHome"></ion-back-button>
+        <ion-back-button defaultHref="base/tabs/UserProfile"></ion-back-button>
       </ion-buttons>
       <h2> Profile Settings</h2>
+    </div>
+    <div class="edit" (click)="onClickEdit()" *ngIf="!editMode">
+      <img src="../../../../../assets/icon/edit.png">
     </div>
 
     <div class="row"> 
       <div class="col-1"></div>
-      <div class="col-10">
-        <div class="ion-text-center">
-          <ion-icon class="service-logo ion-text-center" name="person"></ion-icon>
+      <div class="col-10 ion-text-center">
+        <div class="profile-div">
+          <ion-icon *ngIf="!userData?.image" class="profile-logo ion-text-center" name="person"></ion-icon>
+          <!-- <ion-icon *ngIf="!userData?.image" class ="plus" src='../../../../../assets/icon/Icon awesome-plus-circle.svg'></ion-icon> -->
+          <ion-icon *ngIf="userData?.image" class="profile-logo ion-text-center" [src]="prefix + userData?.image"></ion-icon>
           <ion-icon class ="plus" src='../../../../../assets/icon/Icon awesome-plus-circle.svg'></ion-icon>
         </div>
       </div>
       <div class="col-1"></div>
       
     </div>
-    <div class ="p">
-      <p>Name: Muhammad Noman</p>
-      <p>Mobile Number: 090338028</p>
-      <p>Email: abcde@gmail</p>
-      <p>Change password:******</p>
-      <p>New password:******</p>
+    <div class="profileInfo" *ngIf="!editMode">
+      <p><span>Name: </span> {{userData?.first_name}} {{userData?.last_name}}</p> 
+      <p><span>Mobile: </span> {{userData?.mobile}}</p>
+      <p><span>Email: </span> {{userData?.email}}</p>
     </div>
+
+    <form [formGroup]="updateProfileForm" class="profileInfo" *ngIf="editMode">
+      <div class="form-div">
+        <label>Name</label><ion-input class="profile-input name-input" [(ngModel)]="userData.first_name" formControlName="first_name" placeholder="First Name"></ion-input><ion-input class="profile-input name-input" [(ngModel)]="userData.last_name" formControlName="last_name" placeholder="Last Name"></ion-input>
+      </div>
+      <div class="form-div">
+        <label>Mobile</label><ion-input class="profile-input" type="tel" pattern="[0-9]{11}" formControlName="mobile" placeholder="Mobile" [(ngModel)]="userData.mobile"></ion-input>
+      </div>
+      <div class="form-div">
+        <label>Email</label><ion-input class="profile-input" formControlName="email" placeholder="Email" [(ngModel)]="userData.email"></ion-input>
+      </div>
+      <div class="form-div">
+        <button (click)="onChangePassword()">Change Password</button>
+      </div>
+      <button class="edit-mode-buttons" (click)="onClickEdit()">Cancel</button>
+      <button type="submit" (click)="onSave()" class="edit-mode-buttons">Save</button>
+    </form>
 </ion-content>

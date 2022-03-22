@@ -23,10 +23,12 @@ h2{
     background: #E4E4E5;
     border: 1px solid #707070;
     border-radius: 12px;
-    height: 22%;
+    height: 31%;
     width: 87%;
     margin-left: 6%;
     padding: 3%;
+    overflow-y: auto;
+    display: inline-block;
 }
 h4{
     

@@ -36,6 +36,9 @@ export class SignInPage implements OnInit {
         }
         else {
           console.log('not success: ', res)
+          if(res.validated == false) {
+            this.toastService.loginFailureToast(res.err)
+          }
         }
       })
     }

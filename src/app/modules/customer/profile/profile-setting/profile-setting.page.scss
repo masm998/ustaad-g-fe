@@ -2,19 +2,92 @@
     display: flex;
     color: #707070;
 }
-.service-logo {
+
+.edit {
+    float: right;
+    margin-right: 4%;
+    margin-top: -9%;
+    width: 7%;
+}
+
+.row {
+    height: 20%;
+    margin-top: 4%;
+}
+
+.profile-div {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-logo {
     border: 2px solid darkgray;
     border-radius: 50%;
-    font-size: 519%;
+    font-size: 809%;
     margin-top: 8%;
+    color: #696A6B;
 }
+
 .plus{
-    margin-right: 40px;
+    color: #696A6B;
+    position: absolute;
+    top: calc(50% - -40px);
+    left: calc(50% - -40px);
+    font-size: 152%;
 }
-.p{
+.profileInfo{
     color: #707070;
     margin-left: 5%;
-    margin-top: 11%;
+    margin-top: 13%;
     font-size: 130%;
+    p {
+        margin-top: 12%;
+        span {
+            font-size: 110%;
+            font-weight: 600;
+            margin-right: 3%;
+        }
+    }
+}
 
+.form-div {
+    margin-bottom: 8%;
+    label {
+        float: left;
+        padding-top: 3%;
+        font-size: 110%;
+        font-weight: 600;
+    }
+    .profile-input {
+        border: 1px solid #707070;
+        border-radius: 13px;
+        width: 62%;
+        margin-left: 21%;
+    }
+    .name-input {
+        width: 36%;
+        margin-left: 4%;
+        float: left;
+        margin-bottom: 8%;
+    }
+    button {
+        color: #707070;
+        background: none;
+        text-decoration: underline;
+        font-size: 110%;
+        font-weight: 600;
+        padding-left: 0%;
+    }
+}
+
+.edit-mode-buttons {
+    text-align: center;
+    background-color: #72726f;
+    padding: 2%;
+    border-radius: 15px;
+    width: 34%;
+    height: 43px;
+    font-size: 87%;
+    margin: 7%;
+    margin-top: 21%;
 }

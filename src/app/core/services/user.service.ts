@@ -11,4 +11,11 @@ export class UserService {
   public getServices() {
     return this.apiService.sendGetRequest('service')
   }
+
+  public getUserProfile() {
+    const params = {
+      getCustomerData: true
+    }
+    return this.apiService.sendGetRequestParams('user', params)
+  }
 }

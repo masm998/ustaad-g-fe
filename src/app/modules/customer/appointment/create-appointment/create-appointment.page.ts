@@ -27,7 +27,7 @@ export class CreateAppointmentPage implements OnInit {
       car: new FormControl('', [Validators.required]),
       service: new FormControl(''),
       description: new FormControl('', [Validators.required]),
-      location: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required]),
       type: new FormControl('', [Validators.required]),
     })
     this.getUserAutomobiles()
@@ -60,8 +60,10 @@ export class CreateAppointmentPage implements OnInit {
     modal.onDidDismiss().then((dataReturned) => {
       this.location = dataReturned.data;
       console.log('loccccc: ', this.location)
-      let locationValue = document.getElementById('location')
-      locationValue.setAttribute('value', `House ${this.location.house}, ${this.location.street}, ${this.location.area}, ${this.location.city}`)
+      const addressString = this.location.house? `House ${this.location.house}, ${this.location.street}, ${this.location.area}, ${this.location.city}` : `${this.location.area}, ${this.location.city}`
+      this.location.address = addressString
+      const locationValue = document.getElementById('location')
+      locationValue.setAttribute('value', addressString)
     });
 
     return await modal.present();
@@ -73,7 +75,7 @@ export class CreateAppointmentPage implements OnInit {
       .subscribe((res: any) => {
         if(res.success){
           console.log(res)
-          this.toastService.generalToast('Appointment Created Successfully!')
+          this.toastService.loginSuccessToast('Appointment Created Successfully!')
         }
       })
     }

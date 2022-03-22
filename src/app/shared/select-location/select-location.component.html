@@ -1,13 +1,13 @@
 <ion-content>
     <div class="content">
-        <ion-buttons slot="start">
+        <!-- <ion-buttons slot="start">
             <ion-back-button text="" defaultHref="customer/appointment/create-appointment"></ion-back-button>
-        </ion-buttons>
+        </ion-buttons> -->
         <h2>Select Location</h2>
     </div>
     <app-google-map (selected)="returnedResult($event)"></app-google-map>
 
     <button (click)="onAddLocation()">
-        Add Location
+        Done
     </button>
 </ion-content>

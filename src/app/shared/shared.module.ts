@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from 'src/app/shared/header/header.component'
-import { SelectLocationComponent } from './select-location/select-location.component';
-import { GoogleMapComponent } from './google-map/google-map.component';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
-import { ServiceDetailPage } from './service-detail/service-detail.page';
+import { ServiceDetailModule } from './service-detail/service-detail.module';
 import { AppointmentDetailPage } from './appointment-detail/appointment-detail.page';
+import { SelectLocationModule } from './select-location/select-location.module';
+import { GoogleMapModule } from './google-map/google-map.module';
+import { ChangePasswordModule } from './change-password/change-password.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    GoogleMapComponent,
-    SelectLocationComponent,
-    ServiceDetailPage,
     AppointmentDetailPage
   ],
   imports: [
@@ -21,15 +19,15 @@ import { AppointmentDetailPage } from './appointment-detail/appointment-detail.p
   ],
   exports: [
     HeaderComponent,
-    SelectLocationComponent,
-    ServiceDetailPage,
-    AppointmentDetailPage
+    SelectLocationModule,
+    ServiceDetailModule,
+    AppointmentDetailPage,
+    ChangePasswordModule
   ],
   providers: [
     Geolocation,
     NativeGeocoder,
-    SelectLocationComponent,
-    ServiceDetailPage,
+    GoogleMapModule,
     AppointmentDetailPage
   ]
 })

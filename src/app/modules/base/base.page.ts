@@ -19,7 +19,6 @@ export class BasePage implements OnInit {
   ngOnInit() {
     this.role = this.localStorage.getUserRole()
     console.log('role: ', this.role)
-    this.localStorage.setLocation(this.currentLocation.latitude, this.currentLocation.longitude)
     if(!this.role) {
       this.router.navigate(['auth/sign-in'])
     }
@@ -43,6 +42,7 @@ export class BasePage implements OnInit {
      }).catch((error) => {
        console.log('Error getting location', error);
        console.log('location: ', this.currentLocation)
+       this.localStorage.setLocation(this.currentLocation.latitude, this.currentLocation.longitude)
      });
   }
 

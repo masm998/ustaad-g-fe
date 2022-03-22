@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AppointmentDetailPage } from './shared/appointment-detail/appointment-detail.page';
 import { GoogleMapComponent } from './shared/google-map/google-map.component';
-import { SelectLocationComponent } from './shared/select-location/select-location.component';
 import { ServiceDetailPage } from './shared/service-detail/service-detail.page';
 
 
@@ -32,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'select-location',
-    component: SelectLocationComponent
+    loadChildren: () => import('./shared/select-location/select-location.module')
   },
   {
     path: 'map',
@@ -46,8 +45,6 @@ const routes: Routes = [
     path: 'appointment-detail',
     component: AppointmentDetailPage
   }
-
-
 
 ];
 
