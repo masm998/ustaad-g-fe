@@ -19,4 +19,8 @@ export class UstaadProfilePage implements OnInit {
     this.router.navigate(['auth/sign-in'])
   }
 
+  onClickProfile(){
+    this.router.navigate(["ustaad/profile/ustaad-profile-settings"])
+  }
+
 }

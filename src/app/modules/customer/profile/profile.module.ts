@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilePageRoutingModule } from './profile-routing.module';
 import { ProfilePage } from './profile.page';
 import { ProfileSettingPage } from './profile-setting/profile-setting.page';
+import { AddressesPageModule } from 'src/app/shared/addresses/addresses.module';
+
 
 @NgModule({
   imports: [
@@ -12,7 +14,8 @@ import { ProfileSettingPage } from './profile-setting/profile-setting.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    ProfilePageRoutingModule
+    ProfilePageRoutingModule,
+    AddressesPageModule
   ],
   declarations: [ProfilePage,
   ProfileSettingPage]

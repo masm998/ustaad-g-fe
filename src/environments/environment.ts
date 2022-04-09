@@ -7,8 +7,8 @@ export const environment = {
 };
 
 export const config = {
-  // backend_url: "http://localhost:5000/"
-  backend_url: "http://192.168.100.84:5000/"
+  backend_url: "http://localhost:5000/"
+  // backend_url: "http://192.168.100.84:5000/"
 }
 
 /*

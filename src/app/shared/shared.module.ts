@@ -8,6 +8,7 @@ import { AppointmentDetailPage } from './appointment-detail/appointment-detail.p
 import { SelectLocationModule } from './select-location/select-location.module';
 import { GoogleMapModule } from './google-map/google-map.module';
 import { ChangePasswordModule } from './change-password/change-password.module';
+import { AddressesPageModule } from './addresses/addresses.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ChangePasswordModule } from './change-password/change-password.module';
     SelectLocationModule,
     ServiceDetailModule,
     AppointmentDetailPage,
-    ChangePasswordModule
+    ChangePasswordModule,
+    AddressesPageModule
   ],
   providers: [
     Geolocation,

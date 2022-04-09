@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AddressesPage } from './shared/addresses/addresses.page';
 import { AppointmentDetailPage } from './shared/appointment-detail/appointment-detail.page';
 import { GoogleMapComponent } from './shared/google-map/google-map.component';
 import { ServiceDetailPage } from './shared/service-detail/service-detail.page';
@@ -44,7 +45,12 @@ const routes: Routes = [
   {
     path: 'appointment-detail',
     component: AppointmentDetailPage
+  },
+  {
+    path: 'addresses',
+    component: AddressesPage
   }
+
 
 ];
 

@@ -54,6 +54,28 @@ export class AuthService {
     })
   }
 
+  public updateUstaadProfile(ustaadData) {
+    const params = {
+      updateUstaad: true,
+      data: ustaadData
+    }
+    return new Observable((observer) => {
+      this.apiService.sendUpdateRequest('mechanic', params)
+      .subscribe((res: any) => {
+        if(res.success) {
+          // this.localStorageService.saveCredentials(res.user_id, res.first_name, res.last_name, res.mobile, res.email, res.token, res.role, res.profile_pic)
+          observer.next(res)
+        }
+        else {
+          observer.next(res)
+        }
+      }, (err) => {
+        console.log('Error while updating ustaad: ', err)
+        observer.error(err)
+      })
+    })
+  }
+
   public changePassword(passData) {
     const params = {
       updatePassword: true,

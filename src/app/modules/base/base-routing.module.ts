@@ -17,22 +17,22 @@ const routes: Routes = [
       {
         path: 'UserHome',
         component: UserDashboardPage,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'UserProfile',
         component: ProfilePage,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'UstaadHome',
         component: UstaadDashboardPage,
-        // canActivate: [UstaadAuthGuard]
+        canActivate: [UstaadAuthGuard]
       },
       {
         path: 'UstaadProfile',
         component: UstaadProfilePage,
-        // canActivate: [UstaadAuthGuard]
+        canActivate: [UstaadAuthGuard]
       }
     ]
   }

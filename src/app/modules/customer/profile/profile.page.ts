@@ -29,4 +29,7 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['auth/sign-in'])
 
   }
+  onClickAddresses(){
+    this.router.navigate(['addresses'])
+  }
 }

@@ -20,4 +20,12 @@ export class AppointmentService {
     }
     return this.apiService.sendPostRequest('appointment', params)
   }
+
+  public appointmentDataForSearchMechanic(appointmentId) {
+    const params = {
+      appointmentForSearch: true,
+      appointment_id: appointmentId
+    }
+    return this.apiService.sendGetRequestParams('appointment', params)
+  }
 }

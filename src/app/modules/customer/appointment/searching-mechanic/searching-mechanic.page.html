@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="content">
+      
+  </div>
+  <div class="bg-img"></div>
+  <div class="bg-text">
+    <h2>Searching For Mechanic...</h2>
+  </div>
+
+  <ion-progress-bar color="primary" type="indeterminate"></ion-progress-bar>
+
+  <div class="appt-div">
+    <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>
+    <p>{{appointmentData?.address}}</p>
+  </div>
+  <div class="appt-div">
+    <ion-icon src ='../../../../assets/icon/car.svg'></ion-icon>
+    <p>{{appointmentData?.car_name}}</p>
+  </div>
+  <div class="appt-div">
+    <img class="service-icon" [src] ='prefix + appointmentData?.image'>
+    <p>{{appointmentData?.service_name}}</p>
+  </div>
+
+</ion-content>

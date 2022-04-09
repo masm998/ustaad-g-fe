@@ -1,0 +1,52 @@
+
+<ion-content>
+  <div class="content">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="base/tabs/UstaadProfile"></ion-back-button>
+    </ion-buttons>
+    <h2> Profile Settings</h2>
+  </div>
+  <div class="edit" (click)="onClickEdit()" *ngIf="!editMode">
+    <img src="../../../../../assets/icon/edit.png">
+  </div>
+
+  <div class="row"> 
+    <div class="col-1"></div>
+    <div class="col-10 ion-text-center">
+      <div class="profile-div">
+        <ion-icon *ngIf="!ustaadData?.image" class="profile-logo ion-text-center" name="person"></ion-icon>
+        <ion-icon *ngIf="ustaadData?.image" class="profile-logo ion-text-center" [src]="prefix + ustaadData?.image"></ion-icon>
+        <ion-icon class ="plus" src='../../../../../assets/icon/Icon awesome-plus-circle.svg'></ion-icon>
+      </div>
+    </div>
+    <div class="col-1"></div>
+
+  </div>
+  <div class="profileInfo" *ngIf="!editMode">
+    <p><span>Name: </span> {{ustaadData?.first_name}} {{ustaadData?.last_name}}</p> 
+    <p><span>Mobile: </span> {{ustaadData?.mobile}}</p>
+    <p><span>Email: </span> {{ustaadData?.email}}</p>
+    <p><span>Expertise: </span> {{ustaadData?.expertise}}</p>
+  </div>
+
+  <form [formGroup]="updateProfileForm" class="profileInfo" *ngIf="editMode">
+    <div class="form-div">
+      <label>Name</label><ion-input class="profile-input name-input" [(ngModel)]="ustaadData.first_name" formControlName="first_name" placeholder="First Name"></ion-input><ion-input class="profile-input name-input" [(ngModel)]="ustaadData.last_name" formControlName="last_name" placeholder="Last Name"></ion-input>
+    </div>
+    <div class="form-div">
+      <label>Mobile</label><ion-input class="profile-input" type="tel" pattern="[0-9]{11}" formControlName="mobile" placeholder="Mobile" [(ngModel)]="ustaadData.mobile"></ion-input>
+    </div>
+    <div class="form-div">
+      <label>Email</label><ion-input class="profile-input" formControlName="email" placeholder="Email" [(ngModel)]="ustaadData.email"></ion-input>
+    </div>
+    <div class="form-div">
+      <label>Expertise</label><ion-input class="profile-input" formControlName="expertise" placeholder="Expertise" [(ngModel)]="ustaadData.expertise"></ion-input>
+    </div>
+    <div class="form-div">
+      <button (click)="onChangePassword()">Change Password</button>
+    </div>
+    <button class="edit-mode-buttons" (click)="onClickEdit()">Cancel</button>
+    <button type="submit" (click)="onSave()" class="edit-mode-buttons">Save</button>
+  </form>
+
+</ion-content>
