@@ -16,4 +16,8 @@ export class AppointmentPage implements OnInit {
   onCreateAppointment() {
     this.router.navigate(['customer/appointment/create-appointment'])
   }
+
+  onClickAppointment(id) {
+    this.router.navigate(['appointment-detail', id])
+  }
 }

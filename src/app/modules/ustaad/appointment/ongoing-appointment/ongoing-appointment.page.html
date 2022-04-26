@@ -1,0 +1,35 @@
+<ion-content>
+  <div class="content">
+    <h2>Appointment </h2>
+  </div>
+  <div class="top-div ion-text-center"> 
+   <div class="service-img-div">
+    <img class="service-img" [src]="prefix + appointmentDetail?.s_logo"> <!--  src="../../../assets/icon/mechanic.jpg"   -->
+   </div>
+    <h6 class="service-name">{{ appointmentDetail?.service_name }}</h6>
+  </div>
+
+  <div class="info">
+      <div class="style">
+          <ion-icon src= '../../../assets/icon/profile.svg'></ion-icon>
+          <span>{{ appointmentDetail?.customer_fname }} {{ appointmentDetail?.customer_lname }}</span>
+      </div>
+      <div class="style">
+          <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>
+          <span>{{ appointmentDetail?.address }}</span>
+      </div>
+      <div class="style">
+          <ion-icon src ='../../../../assets/icon/car.svg'></ion-icon>
+          <span>{{ appointmentDetail?.car_name }}, {{ appointmentDetail?.car_model }}</span>
+      </div>
+  </div>
+  <div class="description">
+    <h4>Description</h4>
+    <div class="desc-div">
+        <p>{{ appointmentDetail?.description }}</p>
+    </div>
+  </div>
+  
+  <button type="submit" (click)="onEndappointment()">End Appointment</button>
+
+</ion-content>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class ToastService {
 
-  constructor(private toastController: ToastController) { }
+  constructor(private toastController: ToastController, private router: Router) { }
 
 
   //by default toasts are top
@@ -66,6 +67,23 @@ export class ToastService {
       message: message,
       duration: 2000,
       position: "top",
+      cssClass: "hd-green-toast"
+    });
+
+    toast.present();
+  }
+
+  async requestToast(message: string, id: number) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
+      position: "top",
+      buttons: [{
+        text: 'Open',
+        handler: () => {
+          this.router.navigate(['ustaad/appointment-request', id])
+        }
+      }],
       cssClass: "hd-green-toast"
     });
 

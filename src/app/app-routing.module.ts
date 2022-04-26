@@ -43,7 +43,7 @@ const routes: Routes = [
     component: ServiceDetailPage
   },
   {
-    path: 'appointment-detail',
+    path: 'appointment-detail/:id',
     component: AppointmentDetailPage
   },
   {

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppointmentService } from 'src/app/core/services/appointment.service';
-import { config } from 'src/environments/environment';
+import { config } from 'src/environments/environment'
 
 @Component({
-  selector: 'app-appointment-detail',
-  templateUrl: './appointment-detail.page.html',
-  styleUrls: ['./appointment-detail.page.scss'],
+  selector: 'app-ongoing-appointment',
+  templateUrl: './ongoing-appointment.page.html',
+  styleUrls: ['./ongoing-appointment.page.scss'],
 })
-export class AppointmentDetailPage implements OnInit {
+export class OngoingAppointmentPage implements OnInit {
+  app_id: any;
+  appointmentDetail: any;
+  prefix = config.backend_url
 
   constructor(private activatedRoute: ActivatedRoute, private appointmentService: AppointmentService) { }
-  app_id: number
-  appointmentDetail
-  prefix = config.backend_url
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((param) => {
@@ -23,10 +23,11 @@ export class AppointmentDetailPage implements OnInit {
   }
 
   getAppointmentDetail() {
-    this.appointmentService.getAppointmentDetail(this.app_id, 1)
+    this.appointmentService.getAppointmentDetail(this.app_id, 6)
     .subscribe((result: any) => {
       console.log(result)
-      this.appointmentDetail = result.data[0]
+      this.appointmentDetail = result.data.length ? result.data[0] : null;
+      
     })
   }
 

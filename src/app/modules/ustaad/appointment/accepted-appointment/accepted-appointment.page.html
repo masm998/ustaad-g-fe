@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="content">
+  </div>
+  <app-google-map (selected)="returnedResult($event)"></app-google-map>
+
+  <div class="appt-div">
+    <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>
+    <p>{{appointmentData?.address}}</p>
+  </div>
+  <div class="appt-div">
+    <ion-icon src ='../../../../assets/icon/car.svg'></ion-icon>
+    <p>{{appointmentData?.car_name}}</p>
+  </div>
+  <div class="appt-div">
+    <img class="service-icon" [src] ='prefix + appointmentData?.image'>
+    <p>{{appointmentData?.service_name}}</p>
+  </div>
+  <button (click)="onCancel()">Cancel Appointment</button>
+  <button (click)="onStart()">Start Appointment</button>
+</ion-content>

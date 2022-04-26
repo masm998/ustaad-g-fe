@@ -1,5 +1,8 @@
 .content {
     display: flex;
+    h2 {
+        margin-top: 11px;
+    }
 }
 
 div{
@@ -73,38 +76,9 @@ button{
     background-color: #707070;
     padding: 2%;
     border-radius: 22px;
-    width: 57%;
-    margin-top: 5%;
+    width: 29%;
+    margin-top: 10%;
     height: 40px;
     font-size: 15px;
-    margin-left: 20%;
-}
-
-.app-div {
-    // border: 1px solid darkgray;
-    // border-radius: 25px;
-    display: flex;
-    width: 85%;
-    margin-left: 4%;
-    padding-top: 5%;
-    padding-left: 9%;
-    // background: #E4E4E4;
-}
-.app-image {
-    border: 1px solid darkgray;
-    border-radius: 50%;
-    font-size: 221%;
-    margin: 10px;
-    margin-top: 14px;
-}
-p {
-    font-size: 80%;
-    // margin-left: 3%;
-}
-.star-div{
-    margin-left: 24%;
-    margin-top: 3%;
-}
-h4{
-    padding-left: 4%;
+    margin-left: 14%;
 }

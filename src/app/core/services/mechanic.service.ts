@@ -14,4 +14,11 @@ export class MechanicService {
     }
     return this.apiService.sendGetRequestParams('mechanic', params)
   }
+
+  public getActiveAppointmentRequests() {
+    const params = {
+      activeAppointments: true
+    }
+    return this.apiService.sendGetRequestParams('mechanic', params)
+  }
 }

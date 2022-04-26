@@ -4,16 +4,15 @@ import { HeaderComponent } from 'src/app/shared/header/header.component'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { ServiceDetailModule } from './service-detail/service-detail.module';
-import { AppointmentDetailPage } from './appointment-detail/appointment-detail.page';
 import { SelectLocationModule } from './select-location/select-location.module';
 import { GoogleMapModule } from './google-map/google-map.module';
 import { ChangePasswordModule } from './change-password/change-password.module';
 import { AddressesPageModule } from './addresses/addresses.module';
+import { AppointmentDetailModule } from './appointment-detail/appointment-detail.module';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    AppointmentDetailPage
+    HeaderComponent
   ],
   imports: [
     CommonModule
@@ -22,15 +21,14 @@ import { AddressesPageModule } from './addresses/addresses.module';
     HeaderComponent,
     SelectLocationModule,
     ServiceDetailModule,
-    AppointmentDetailPage,
     ChangePasswordModule,
-    AddressesPageModule
+    AddressesPageModule,
+    AppointmentDetailModule
   ],
   providers: [
     Geolocation,
     NativeGeocoder,
-    GoogleMapModule,
-    AppointmentDetailPage
+    GoogleMapModule
   ]
 })
 export class SharedModule { }

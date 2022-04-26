@@ -1,50 +1,56 @@
-
-
 <ion-content>
   <div class="content">
     <ion-buttons slot="start">
-        <ion-back-button text="" defaultHref="base/tabs/UserHome"></ion-back-button>
+        <ion-back-button text="" defaultHref="base/tabs/UstaadHome"></ion-back-button>
     </ion-buttons>
-    <h2>Appointment Detail</h2>
+    <h2>Appointment Details</h2>
   </div>
-  <div class="row"> 
-    <div class="col-1"></div>
-    <div class="col-10">
-      <div class="ion-text-center">
-        <ion-icon *ngIf="!serviceDetail?.image" class="service-logo ion-text-center" name="person"></ion-icon>
-        <img *ngIf="serviceDetail?.image" class="service-img" [src]="prefix + serviceDetail.image">
-      </div>
-    </div>
-    <h4 class="ion-text-center">{{serviceDetail?.service_name}}</h4>
+  <div class="top-div ion-text-center"> 
+   <div class="service-img-div">
+    <img class="service-img" [src]="prefix + appointmentDetail?.s_logo">
+   </div>
+    <h6 class="service-name">{{ appointmentDetail?.service_name }}</h6>
   </div>
 
   <div class="info">
-    <ion-icon name="calendar"></ion-icon>
-    
+      <div class="style">
+          <ion-icon src= '../../../assets/icon/time.svg'></ion-icon>
+          <span>{{ appointmentDetail?.date }}</span>
+      </div>
+      <div class="style">
+          <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>
+          <span>{{ appointmentDetail?.address }}</span>
+      </div>
+      <div class="style">
+          <ion-icon src ='../../../../assets/icon/car.svg'></ion-icon>
+          <span>{{ appointmentDetail?.car_name}}</span>
+      </div>
   </div>
-  <div class="details">
-    <h4>Mechanic Details</h4>
-  
-    <div>
-      <div class="row app-div">
-        <div class="col-2">
-          <ion-icon class="app-image" name="person"></ion-icon>
-        </div>
-        <div class="col-4">
-             
-          <p>Service Name</p>
-          <p>Expertise</p>
-        </div>
-        <div text-wrap class="col-6 star-div">
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star-outline"></ion-icon>
-          <ion-icon style="color:gold;" name="star-outline"></ion-icon>
-          
-        </div>
+  <div class="description">
+    <h4>Description</h4>
+    <div class="desc-div">
+      <p>{{ appointmentDetail?.description }}</p>
+    </div>
+  </div>
+  <div>
+    <div class="row app-div">
+      <div class="col-2">
+        <ion-icon class="app-image" name="person"></ion-icon>
+      </div>
+      <div class="col-4">
+           
+        <p>{{ appointmentDetail?.ustaad_fname }} {{ appointmentDetail?.ustaad_lname }}</p>
+        <p>{{ appointmentDetail?.expertise }}</p>
+      </div>
+      <div text-wrap class="col-6 star-div">
+        <ion-icon style="color:gold;" name="star"></ion-icon>
+        <ion-icon style="color:gold;" name="star"></ion-icon>
+        <ion-icon style="color:gold;" name="star"></ion-icon>
+        <ion-icon style="color:gold;" name="star-outline"></ion-icon>
+        <ion-icon style="color:gold;" name="star-outline"></ion-icon>
+        
       </div>
     </div>
   </div>
-
+  <button type="submit">Schedule Now</button>
 </ion-content>

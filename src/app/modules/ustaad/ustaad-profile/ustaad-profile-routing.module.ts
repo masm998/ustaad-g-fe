@@ -12,7 +12,11 @@ const routes: Routes = [
   {
     path: 'ustaad-profile-settings',
     component: UstaadProfileSettingsPage
+  },  {
+    path: 'my-inventory',
+    loadChildren: () => import('./my-inventory/my-inventory.module').then( m => m.MyInventoryPageModule)
   }
+
 
 ];
 
