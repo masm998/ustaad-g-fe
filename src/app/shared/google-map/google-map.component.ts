@@ -31,7 +31,8 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
   globalMaps;
   globalMarker;
 
-  private apiKey = 'AIzaSyAyKR3VHX4FzctdpIsjR4mOMR8VV3CpQmM'
+  private apiKey = 'AIzaSyD5T-WuxqszACay8W_O8Nv8a_Ud4v3ZFDk'
+  // 'AIzaSyAyKR3VHX4FzctdpIsjR4mOMR8VV3CpQmM'
   clickable = true;
   searchable = true;
 

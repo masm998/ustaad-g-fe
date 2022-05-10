@@ -5,6 +5,7 @@ import { UstaadAuthGuard } from 'src/app/core/guards/ustaad-auth-guard.service';
 import { AppointmentRequestPage } from './appointment/appointment-request/appointment-request.page';
 import { AcceptedAppointmentPage } from './appointment/accepted-appointment/accepted-appointment.page';
 import { OngoingAppointmentPage } from './appointment/ongoing-appointment/ongoing-appointment.page';
+// import { AcceptedAppointmentComponent } from './appointment/accepted-appointment/accepted-appointment.component';
 
 
 const routes: Routes = [

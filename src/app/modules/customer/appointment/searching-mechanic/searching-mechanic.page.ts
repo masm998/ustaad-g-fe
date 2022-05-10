@@ -31,4 +31,8 @@ export class SearchingMechanicPage implements OnInit {
       }
     })
   }
+
+  onCancel() {
+    console.log('cancel clicked')
+  }
 }

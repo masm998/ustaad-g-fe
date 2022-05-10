@@ -1,12 +1,23 @@
-.content {
-    display: flex;
-    h2 {
-        margin-top: 11px;
-    }
-}
-
 div{
     color: #707070;
+}
+
+.appt-div {
+    display: flex;
+    margin-left: 8%;
+    margin-top: 9%;
+    .phone-icon {
+        margin-top: 3%;
+        font-size: 22px;
+    }
+    p {
+        margin-left: 4%;
+    }
+    .message-icon {
+        margin-top: -3%;
+        font-size: 75px;
+        margin-left: 38%;
+    }
 }
 
 button{
@@ -15,7 +26,7 @@ button{
     padding: 2%;
     border-radius: 22px;
     width: 40%;
-    margin-top: 10%;
+    margin-top: 3%;
     height: 40px;
     font-size: 15px;
     margin-left: 7%;

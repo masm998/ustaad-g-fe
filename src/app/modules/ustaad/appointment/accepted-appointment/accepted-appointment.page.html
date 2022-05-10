@@ -1,20 +1,11 @@
 <ion-content>
-  <div class="content">
-  </div>
-  <app-google-map (selected)="returnedResult($event)"></app-google-map>
+  <app-tracking-map [userLocation]="location" (changedLocation)="updatedLocation($event)"></app-tracking-map>
 
   <div class="appt-div">
-    <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>
-    <p>{{appointmentData?.address}}</p>
-  </div>
-  <div class="appt-div">
-    <ion-icon src ='../../../../assets/icon/car.svg'></ion-icon>
-    <p>{{appointmentData?.car_name}}</p>
-  </div>
-  <div class="appt-div">
-    <img class="service-icon" [src] ='prefix + appointmentData?.image'>
-    <p>{{appointmentData?.service_name}}</p>
+    <ion-icon class="phone-icon" src="../../../../../assets/icon/phone.svg"></ion-icon>
+    <p>Contact {{user}}</p>
+    <ion-icon class="message-icon" src="../../../../../assets/icon/message.svg"></ion-icon>
   </div>
   <button (click)="onCancel()">Cancel Appointment</button>
-  <button (click)="onStart()">Start Appointment</button>
+  <button (click)="onStart()" [disabled]="disabled">Start Service</button>
 </ion-content>

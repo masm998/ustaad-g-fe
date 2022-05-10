@@ -19,6 +19,7 @@ export class AutomobilePage implements OnInit {
   getUserAutomobiles() {
     this.automobileService.getUserAutomobile()
     .subscribe((res: any) => {
+      console.log('car list: ', res)
       if(res.success) {
         this.automobileList = res.data
       }

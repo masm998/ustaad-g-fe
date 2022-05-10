@@ -9,6 +9,7 @@ import { GoogleMapModule } from './google-map/google-map.module';
 import { ChangePasswordModule } from './change-password/change-password.module';
 import { AddressesPageModule } from './addresses/addresses.module';
 import { AppointmentDetailModule } from './appointment-detail/appointment-detail.module';
+import { TrackingMapModule } from './tracking-map/tracking-map.module';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,14 @@ import { AppointmentDetailModule } from './appointment-detail/appointment-detail
     ServiceDetailModule,
     ChangePasswordModule,
     AddressesPageModule,
-    AppointmentDetailModule
+    AppointmentDetailModule,
+    TrackingMapModule
   ],
   providers: [
     Geolocation,
     NativeGeocoder,
-    GoogleMapModule
+    GoogleMapModule,
+    TrackingMapModule
   ]
 })
 export class SharedModule { }

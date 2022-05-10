@@ -15,10 +15,10 @@ const routes: Routes = [
     path: 'create-appointment',
     component: CreateAppointmentPage
   },
-  // {
-  //   path: 'searching-mechanic/:appointmentId',
-  //   component: SearchingMechanicPage
-  // },
+  {
+    path: 'searching-mechanic/:appointmentId',
+    component: SearchingMechanicPage
+  },
   // {
   //   path: 'select-location',
   //   component: SelectLocationComponent

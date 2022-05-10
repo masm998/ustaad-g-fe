@@ -10,8 +10,8 @@ import { AcceptedAppointmentPage } from './accepted-appointment.page';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule
+    IonicModule,
   ],
-  declarations: [AcceptedAppointmentPage]
+  declarations: [ AcceptedAppointmentPage]
 })
-export class AcceptedAppointmentPageModule {}
+export class AcceptedAppointmentModule {}
