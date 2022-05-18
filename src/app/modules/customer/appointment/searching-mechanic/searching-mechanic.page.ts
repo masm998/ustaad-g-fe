@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 import { AppointmentService } from 'src/app/core/services/appointment.service';
 import { config } from 'src/environments/environment';
+import { io } from 'socket.io-client'
 
 @Component({
   selector: 'app-searching-mechanic',
@@ -9,6 +10,7 @@ import { config } from 'src/environments/environment';
   styleUrls: ['./searching-mechanic.page.scss'],
 })
 export class SearchingMechanicPage implements OnInit {
+  socket = io('ws://localhost:3000')
   appointmentId: number
   prefix = config.backend_url
   appointmentData: any
@@ -20,6 +22,12 @@ export class SearchingMechanicPage implements OnInit {
     })
 
     this.getAppointmentData();
+    this.socket.on('acceptAppointment', (arg) => {
+      if(arg.socketId) {
+        console.log('arg: ', arg)
+        this.router.navigate(['accepted-appointment', this.appointmentId])
+      }
+    })
   }
 
   getAppointmentData() {

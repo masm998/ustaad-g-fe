@@ -42,7 +42,7 @@ export class AppointmentRequestPage implements OnInit {
     .subscribe((res: any) => {
       console.log('accept appointment result: ', res)
       if(res.success) {
-        this.router.navigate(['ustaad/accepted-appointment', this.app_id])
+        this.router.navigate(['accepted-appointment', this.app_id])
       }
     })
   }

@@ -30,6 +30,7 @@
     </div>
   </div>
   
-  <button type="submit" (click)="onEndappointment()">End Appointment</button>
+  <button type="submit" *ngIf="userRole === '2'" (click)="onEndAppointment()">End Appointment</button>
+  <p class="service-progress" *ngIf="userRole === '3'">Service in progress</p>
 
 </ion-content>

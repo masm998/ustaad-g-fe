@@ -16,8 +16,10 @@ export class TrackingMapComponent implements OnInit, AfterViewInit {
   @Output() changedLocation = new EventEmitter<any>();
 
   mechanicLocation
+  customerLocation
   subscription: Subscription
   markersArray = [];
+  userRole
   marker;
   globalGoogleMaps;
   globalMaps;
@@ -29,7 +31,17 @@ export class TrackingMapComponent implements OnInit, AfterViewInit {
     private geolocation: Geolocation) { }
 
   ngOnInit() {
-    this.mechanicLocation = this.localStorageService.getLocation()
+    this.userRole = this.localStorageService.getUserRole()
+    if(this.userRole === '2') {
+      this.mechanicLocation = this.localStorageService.getLocation()
+      this.customerLocation = this.userLocation
+    }
+    else if(this.userRole === '3') {
+      this.mechanicLocation = this.userLocation
+      this.customerLocation = this.localStorageService.getLocation()
+    }
+    console.log('mechanic: ', this.mechanicLocation)
+    console.log('customer: ', this.customerLocation)
   }
 
   initializeGoogleMap(): Promise<any> {
@@ -66,11 +78,10 @@ export class TrackingMapComponent implements OnInit, AfterViewInit {
       .then(googleMaps => {
         const mapEl = this.mapElementRef.nativeElement;
         this.globalGoogleMaps = googleMaps;
-
         let center = 
           {
-            lat: parseFloat(this.mechanicLocation.latitude),
-            lng: parseFloat(this.mechanicLocation.longitude)
+            lat: this.userRole === '2' ? parseFloat(this.customerLocation.latitude) : parseFloat(this.mechanicLocation.latitude),
+            lng: this.userRole === '2' ? parseFloat(this.customerLocation.longitude) : parseFloat(this.mechanicLocation.longitude)
           }
 
           this.globalMaps = new googleMaps.Map(mapEl, {
@@ -86,7 +97,7 @@ export class TrackingMapComponent implements OnInit, AfterViewInit {
             this.renderer.addClass(mapEl, 'visible');
           });
 
-          this.placeUserMarker(this.userLocation, undefined, this.globalGoogleMaps);
+          this.placeUserMarker(this.customerLocation, undefined, this.globalGoogleMaps);
 
           this.placeMechanicMarker(this.mechanicLocation, this.globalGoogleMaps);
 
@@ -96,6 +107,9 @@ export class TrackingMapComponent implements OnInit, AfterViewInit {
           timeout: 7000
         })
         .subscribe((position: any) => {
+          if(position.code == 1) {
+            alert(position.message)
+          }
           this.mechanicLocation = {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude

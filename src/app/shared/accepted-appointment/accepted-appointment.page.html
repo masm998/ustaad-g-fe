@@ -1,5 +1,5 @@
 <ion-content>
-  <app-tracking-map [userLocation]="location" (changedLocation)="updatedLocation($event)"></app-tracking-map>
+  <app-tracking-map *ngIf="location" [userLocation]="location" (changedLocation)="updatedLocation($event)"></app-tracking-map>
 
   <div class="appt-div">
     <ion-icon class="phone-icon" src="../../../../../assets/icon/phone.svg"></ion-icon>
@@ -7,5 +7,5 @@
     <ion-icon class="message-icon" src="../../../../../assets/icon/message.svg"></ion-icon>
   </div>
   <button (click)="onCancel()">Cancel Appointment</button>
-  <button (click)="onStart()" [disabled]="disabled">Start Service</button>
+  <button *ngIf="user == 'User'" (click)="onStart()" [disabled]="disabled">Start Service</button>
 </ion-content>

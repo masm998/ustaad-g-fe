@@ -45,4 +45,21 @@ export class AppointmentService {
     }
     return this.apiService.sendUpdateRequest('appointment', params)
   }
+
+  public updateAppointmentStatus(appointmentId, status) {
+    const params = {
+      updateAppointmentStatus: true,
+      status: status,
+      appointment_id: appointmentId
+    }
+    return this.apiService.sendUpdateRequest('appointment', params)
+  }
+
+  public getAppointmentLocation(appointmentId) {
+    const params = {
+      getAppointmentLocation: true,
+      appointment_id: appointmentId
+    }
+    return this.apiService.sendGetRequestParams('appointment', params)
+  }
 }
