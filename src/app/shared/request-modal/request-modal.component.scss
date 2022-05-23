@@ -1,0 +1,32 @@
+.request-div {
+    border: 1px solid darkgray;
+    border-radius: 25px;
+    width: 90%;
+    background: #E4E4E4;
+    margin: 4%;
+    padding: 1% 2% 2% 5%;
+    color: #707070;
+    
+    span {
+        color: gray !important;
+    }
+    .text-2 {
+        font-size: 74%;
+        float: right;
+        margin-right: 2%;
+    }
+    .desc {
+        font-size: 92%;
+        margin-bottom: 1%;
+    }
+    ion-icon {
+        float: right;
+        margin-top: 1%;
+        margin-right: 1%;
+        font-size: 114%;
+    }
+}
+
+::ng-deep .ion-page {
+    display: inline-block;
+}

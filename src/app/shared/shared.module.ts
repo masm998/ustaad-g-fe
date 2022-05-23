@@ -13,6 +13,7 @@ import { TrackingMapModule } from './tracking-map/tracking-map.module';
 import { RatingComponent } from './rating/rating.component';
 import { AcceptedAppointmentModule } from './accepted-appointment/accepted-appointment.module';
 import { OngoingAppointmentPage } from './ongoing-appointment/ongoing-appointment.page';
+import { RequestModalModule } from './request-modal/request-modal.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { OngoingAppointmentPage } from './ongoing-appointment/ongoing-appointmen
     AddressesPageModule,
     AppointmentDetailModule,
     TrackingMapModule,
-    AcceptedAppointmentModule
+    AcceptedAppointmentModule,
+    RequestModalModule
   ],
   providers: [
     Geolocation,

@@ -9,12 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RatingComponent implements OnInit {
   app_id: number;
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((param) => {
       this.app_id = param.id;
     }) 
+  }
+
+  onClickSubmit() {
+    this.router.navigate([''])
   }
 
 }

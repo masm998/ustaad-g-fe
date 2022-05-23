@@ -88,7 +88,9 @@
 
       <ion-row>
         <ion-col>
-          <ion-input type="text" placeholder="*Expertise" formControlName="expertise"></ion-input>
+          <ion-select placeholder="*Expertise" multiple="true" formControlName="expertise">
+            <ion-select-option *ngFor="let service of services" [value]="service.service_name">{{service.service_name}}</ion-select-option>
+          </ion-select>
           <div class="input-line"></div>
           <div *ngIf="signUpForm.controls['expertise'].errors && !signUpForm.controls['expertise'].untouched">
             <div [hidden]="!signUpForm.controls['expertise'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
@@ -105,6 +107,11 @@
           <ion-select-option>Company</ion-select-option>
           </ion-select>
           <div class="input-line"></div>
+          <div *ngIf="signUpForm.controls['useas'].errors && !signUpForm.controls['useas'].untouched">
+            <div [hidden]="!signUpForm.controls['useas'].errors.required" style="font-size: small;color: red;margin-left: 5%;">
+              Field Value is Required!
+            </div>
+          </div>
         </ion-col>
       </ion-row>
     <button type="submit">

@@ -1,0 +1,8 @@
+<!-- <ion-content> -->
+  <div class="request-div" *ngFor = "let request of requests" (click)="clickRequest(request.app_id)">
+    <ion-icon name="close" (click)="onDismiss($event, request.app_id)"></ion-icon>
+    <p class="text">{{request.type}} service request for: <b style="color:rgb(223, 192, 55);">{{request.service_name}}</b></p>
+    <span class="desc">{{request.description.length > 28 ? request.description.substring(0, 28) :  request.description }}</span><span *ngIf="request.description.length > 28">...</span>
+    <span class="text-2">Click to view details</span>
+  </div>
+<!-- </ion-content> -->

@@ -31,7 +31,7 @@ export class ToastService {
   async generalToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 3000,
       position: "top",
       cssClass: "hd-general-toast"   // general middle, theme colors white/purple
     });
@@ -42,7 +42,7 @@ export class ToastService {
   async generalCenterToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 3000,
       position: "middle",
       cssClass: "hd-general-toast"
     });
@@ -74,9 +74,10 @@ export class ToastService {
   }
 
   async requestToast(message: string, id: number) {
+    console.log('id: ', id)
     const toast = await this.toastController.create({
       message: message,
-      duration: 3000,
+      duration: 10000,
       position: "top",
       buttons: [{
         text: 'Open',

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router'
 import { ToastService } from 'src/app/core/services/toast.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-sign-up-ustaad',
@@ -11,9 +12,12 @@ import { ToastService } from 'src/app/core/services/toast.service';
 })
 export class SignUpUstaadPage implements OnInit {
   signUpForm: FormGroup
-  constructor(private authService: AuthService, private router: Router, private toastService: ToastService) { }
+  services
+  constructor(private authService: AuthService, private router: Router, private toastService: ToastService, private userService: UserService) { }
 
   ngOnInit() {
+    this.getServices()
+
     this.signUpForm = new FormGroup({
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl(''),
@@ -35,6 +39,15 @@ export class SignUpUstaadPage implements OnInit {
         mismatch: true
       };
     }
+  }
+
+  getServices() {
+    this.userService.getServices()
+    .subscribe((res: any) => {
+      if(res.success) {
+       this.services = res.data[0] 
+      }
+    })
   }
 
   onSubmit() {

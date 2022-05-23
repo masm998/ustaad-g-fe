@@ -7,6 +7,7 @@ import { CustomerModule } from '../customer/customer.module';
 import { BasePageRoutingModule } from './base-routing.module';
 import { UstaadDashboardPage } from '../ustaad/ustaad-dashboard/ustaad-dashboard.page';
 import { BasePage } from './base.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { BasePage } from './base.page';
     FormsModule,
     IonicModule,
     BasePageRoutingModule,
-    CustomerModule
+    CustomerModule,
+    SharedModule
   ],
   declarations: [BasePage, UserDashboardPage, UstaadDashboardPage]
 })

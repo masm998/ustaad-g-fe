@@ -35,14 +35,14 @@ export class AcceptedAppointmentPage implements OnInit {
     //   latitude: 33.652385,
     //   longitude: 72.959587
     // }
-    if(this.userRole == '2') {
+    if(this.userRole === '2') {
       this.user = 'User'
     }
     else {
       this.user = 'Mechanic'
       this.socket.on('startAppointment', (arg) => {
         if(arg.socketId) {
-          this.toastService.generalCenterToast('The Ustaad is on its way!')
+          this.toastService.generalCenterToast('The Ustaad is on his way!')
           this.router.navigate(['ongoing-appointment', this.app_id])
         }
       })
@@ -60,6 +60,16 @@ export class AcceptedAppointmentPage implements OnInit {
     if(e.latitude === this.location.latitude && e.longitude === this.location.longitude) {
       this.disabled = false
     }
+  }
+
+  onCancel() {
+    this.appointmentService.updateAppointmentStatus(this.app_id, 4)
+    .subscribe((result: any) => {
+      if(result.success) {
+        this.toastService.generalToast('Appointment Cancelled!')
+        this.router.navigate([''])
+      }
+    })
   }
 
   onStart(){

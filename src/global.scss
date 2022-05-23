@@ -42,15 +42,17 @@
     z-index: 1000;
 }
 
+::ng-deep .toast-wrapper {
+    border-radius: 17px;
+}
+
 .hd-general-toast {
-    --background: white;
-    --border-color: #707070;
-    --border-width: 1px;
+    --background: rgb(223, 192, 55);
     --border-style: solid;
-
-    color: #637CB8;
+    color: #707070;
     font-size: 14px;
-
+    width: 85%;
+    margin-left: 7%;
     text-align: center;
 }
 
@@ -78,4 +80,11 @@
     font-weight: 300;
 
     text-align: center;
+}
+
+.request-modal-css {
+    height: 88%;
+    --background: transparent !important;
+    width: 90%;
+    margin: 5%;
 }

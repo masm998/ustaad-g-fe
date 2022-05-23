@@ -22,10 +22,10 @@ export class BasePage implements OnInit {
     if(!this.role) {
       this.router.navigate(['auth/sign-in'])
     }
-    else if(this.role === 2) {
+    else if(this.role === '2') {
       this.router.navigate(['base/tabs/UstaadHome'])
     }
-    else if(this.role === 3) {
+    else if(this.role === '3') {
       this.router.navigate(['base/tabs/UserHome'])
     }
     this.getCurrentCoordinates()
@@ -45,5 +45,4 @@ export class BasePage implements OnInit {
        this.localStorage.setLocation(this.currentLocation.latitude, this.currentLocation.longitude)
      });
   }
-
 }

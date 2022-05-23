@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 import { AppointmentService } from 'src/app/core/services/appointment.service';
 import { config } from 'src/environments/environment';
 import { io } from 'socket.io-client'
+import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'app-searching-mechanic',
@@ -14,7 +15,7 @@ export class SearchingMechanicPage implements OnInit {
   appointmentId: number
   prefix = config.backend_url
   appointmentData: any
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private appointmentService: AppointmentService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private appointmentService: AppointmentService, private toastService: ToastService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
@@ -41,6 +42,12 @@ export class SearchingMechanicPage implements OnInit {
   }
 
   onCancel() {
-    console.log('cancel clicked')
+    this.appointmentService.updateAppointmentStatus(this.appointmentId, 4)
+    .subscribe((result: any) => {
+      if(result.success) {
+        this.toastService.generalToast('Appointment Cancelled!')
+        this.router.navigate(['customer/appointment/create-appointment'])
+      }
+    })
   }
 }

@@ -6,6 +6,6 @@
     <p>Contact {{user}}</p>
     <ion-icon class="message-icon" src="../../../../../assets/icon/message.svg"></ion-icon>
   </div>
-  <button (click)="onCancel()">Cancel Appointment</button>
-  <button *ngIf="user == 'User'" (click)="onStart()" [disabled]="disabled">Start Service</button>
+  <button [ngClass]="{'cancel-button': userRole === '2', 'user-cancel-button' : userRole === '3' }" (click)="onCancel()">Cancel Appointment</button>
+  <button class="cancel-button" *ngIf="userRole === '2'" (click)="onStart()" [disabled]="disabled">Start Service</button>
 </ion-content>
