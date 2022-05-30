@@ -1,0 +1,42 @@
+.content{
+    display: flex;
+    color: #707070;
+}
+
+.row {
+    height: 30%;
+    margin-top: 20%;
+}
+
+.profile-div {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-logo {
+    border: 2px solid darkgray;
+    border-radius: 50%;
+    font-size: 880%;
+    margin-top: 8%;
+    color: #696A6B;
+}
+
+.plus{
+    color: #696A6B;
+    position: absolute;
+    top: calc(50% - -46px);
+    left: calc(50% - -46px);
+    font-size: 152%;
+}
+
+button {
+    text-align: center;
+    background-color: #707070;
+    padding: 2%;
+    border-radius: 22px;
+    width: 40%;
+    margin-top: 5%;
+    height: 40px;
+    font-size: 15px;
+    margin-left: 30%;
+}

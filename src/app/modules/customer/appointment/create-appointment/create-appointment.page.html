@@ -31,16 +31,21 @@
         <ion-row>
           <ion-col>
             <ion-input type="text" id="location" placeholder="*Add Location" (click)="chooseLocation()" formControlName="address"></ion-input>
-            <!-- formControlName="location" -->
           </ion-col>
         </ion-row>
     
         <ion-row>
             <ion-col>
-                <ion-select placeholder="*Appointment Time" formControlName="type">
+                <ion-select placeholder="*Appointment Time" formControlName="type" (ionChange)="appType($event)">
                     <ion-select-option value=1>Urgent</ion-select-option>
                     <ion-select-option value=2>Schedule Appointment</ion-select-option>
                 </ion-select>
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="scheduled">
+            <ion-col>
+                <ion-datetime displayFormat="MMM DD, YYYY HH:mm" placeholder="*Select Date" [min]="currentDate" max="2030-12-31" formControlName="date"></ion-datetime>
             </ion-col>
         </ion-row>
 

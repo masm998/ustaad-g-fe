@@ -1,31 +1,29 @@
-
 <ion-content>
 
   <div class="row"> 
     <div class="col-1"></div>
     <div class="col-10 ion-text-center">
       <div class="profile-div">
-        <ion-icon  class="profile-logo ion-text-center" name="person"></ion-icon> <!--*ngIf="!userData?.image"-->
-        <!-- <ion-icon *ngIf="userData?.image" class="profile-logo ion-text-center" [src]="prefix + userData?.image"></ion-icon> -->
+        <ion-icon *ngIf="userRole == '2' && !appointmentDetail?.mechanic_image" class="profile-logo ion-text-center" name="person"></ion-icon>
+        <ion-icon *ngIf="userRole == '3' && !appointmentDetail?.customer_image" class="profile-logo ion-text-center" name="person"></ion-icon>
+        <ion-icon *ngIf="userRole == '3' && appointmentDetail?.customer_image" class="profile-logo ion-text-center" [src]="prefix + appointmentDetail?.customer_image"></ion-icon>
+        <ion-icon *ngIf="userRole == '2' && appointmentDetail?.mechanic_image" class="profile-logo ion-text-center" [src]="prefix + appointmentDetail?.mechanic_image"></ion-icon>
        
       </div>
     </div>
     <div class="col-1"></div>
-    
   </div>
 
-    <h4>
-      Name
-    </h4>
-    <div text-wrap class="star-div">
-      <ion-icon style="color:rgb(223, 192, 55);" name="star"></ion-icon>
-      <ion-icon style="color:rgb(223, 192, 55);" name="star"></ion-icon>
-      <ion-icon style="color:rgb(223, 192, 55);" name="star"></ion-icon>
-      <ion-icon style="color:rgb(223, 192, 55);" name="star-outline"></ion-icon>
-      <ion-icon style="color:rgb(223, 192, 55);" name="star-outline"></ion-icon>
-     
+    <h4 *ngIf="userRole == '2'">{{appointmentDetail?.mechanic_name}}</h4>
+    <h4 *ngIf="userRole == '3'">{{appointmentDetail?.customer_name}}</h4>
+    <div class="rate-star">
+      <div class="star-div" *ngFor="let star of stars">
+        <ion-icon style="color:rgb(223, 192, 55);" *ngIf="star.value" name="star" (click)="onClickStar(star.id)"></ion-icon>
+        <ion-icon style="color:rgb(223, 192, 55);" *ngIf="!star.value" name="star-outline" (click)="onClickStar(star.id)"></ion-icon>
+      </div>
     </div>
   <h4 class="feedback">Feedback</h4>
+  <ion-textarea [(ngModel)]="feedback"></ion-textarea>
 
   <button (click)="onClickSubmit()">Submit</button>
 </ion-content>

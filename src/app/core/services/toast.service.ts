@@ -55,7 +55,7 @@ export class ToastService {
       message: message,
       duration: 2000,
       position: "top",
-      cssClass: "hd-faliure-toast"
+      cssClass: "hd-red-toast"
     });
 
     toast.present();

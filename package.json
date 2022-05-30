@@ -40,6 +40,8 @@
     "cordova-plugin-nativegeocoder": "^3.4.1",
     "cordova-plugin-splashscreen": "^6.0.0",
     "cors": "^2.8.5",
+    "date-fns": "^2.28.0",
+    "moment": "^2.29.3",
     "rxjs": "~6.6.0",
     "socket.io-client": "^4.5.0",
     "tslib": "^2.2.0",

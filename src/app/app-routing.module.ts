@@ -7,7 +7,7 @@ import { GoogleMapComponent } from './shared/google-map/google-map.component';
 import { RatingComponent } from './shared/rating/rating.component';
 import { ServiceDetailPage } from './shared/service-detail/service-detail.page';
 import { OngoingAppointmentPage } from './shared/ongoing-appointment/ongoing-appointment.page';
-import { RequestModalComponent } from './shared/request-modal/request-modal.component';
+import { ProfilePictureComponent } from './shared/profile-picture/profile-picture.component';
 
 const routes: Routes = [
  
@@ -66,8 +66,8 @@ const routes: Routes = [
     component: RatingComponent
   },
   {
-    path: 'request',
-    component: RequestModalComponent
+    path: 'profile-picture',
+    component: ProfilePictureComponent
   }
 ];
 

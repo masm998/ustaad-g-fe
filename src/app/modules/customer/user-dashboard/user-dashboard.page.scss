@@ -55,13 +55,13 @@ ion-slide {
     border: 1px solid #707070;
     border-radius: 25px;
     display: flex;
-    width: 85%;
+    width: 88%;
     margin-left: 4%;
     margin-bottom: 3%;
     background: #E4E4E4;
 }
 
-.app-image {
+.app-icon {
     border: 1px solid darkgray;
     border-radius: 50%;
     font-size: 221%;
@@ -69,15 +69,35 @@ ion-slide {
     margin-top: 24px;
 }
 
+.app-img {
+    border: 1px solid darkgray;
+    border-radius: 50%;
+    margin: 10px;
+    margin-top: 15px;
+    width: 78%;
+}
 
+.service-icon {
+    width: 29%;
+    text-align: center;
+}
+
+.service-info {
+    width: 28%;
+}
 
 .service-name2 {
-    margin-top: 20%;
+    margin-top: 26%;
 }
 
 .star-div{
-    margin-left: 24%;
-    padding-top: 4%;
+    display: flex;
+    width: 100%;
+    padding-left: 15%;
+}
+
+.star-icon {
+    font-size: 120%;
 }
 
 .see-all-text {

@@ -9,16 +9,30 @@
     margin-top: 8%;
     color: #696A6B;
 }
-.star-div{
-    margin-left: 34%;
-    padding-top: 4%;
+
+.rate-star {
+    display: flex;
+    margin: 12%;
+    margin-left: 35%;
+}
+
+.star-div {
     font-size: 150%;
 }
+
 h4{
     text-align: center;
 }
 .feedback{
     margin-left: 1%;
+}
+
+ion-textarea {
+    background: lightgray;
+    width: 78%;
+    margin: 10%;
+    height: 16%;
+    padding: 2%;
 }
 
 button {

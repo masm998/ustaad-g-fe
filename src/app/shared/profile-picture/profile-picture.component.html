@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="content">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="base/tabs/UserProfile"></ion-back-button>
+    </ion-buttons>
+    <h2> Profile Picture</h2>
+  </div>
+
+  <div class="row"> 
+    <div class="col-1"></div>
+    <div class="col-10 ion-text-center">
+      <div class="profile-div" (click)="file.click()">
+        <ion-icon *ngIf="!selectedFiles" class="profile-logo ion-text-center" name="person"></ion-icon>
+        <img id="profile" class="profile-logo ion-text-center">
+        <ion-icon class="plus" src='../../../../../assets/icon/Icon awesome-plus-circle.svg'></ion-icon>
+      </div>
+      <input type="file" accept="image/*" (change)="selectImage($event)" #file hidden>
+    </div>
+    <div class="col-1"></div>
+  </div>
+
+  <button (click)="upload()">Submit</button>
+</ion-content>

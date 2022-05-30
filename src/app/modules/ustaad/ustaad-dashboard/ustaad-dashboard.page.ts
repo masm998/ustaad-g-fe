@@ -22,7 +22,7 @@ export class UstaadDashboardPage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.socket.on('createAppointment', (arg) => {
-      console.log('socket: ', arg)
+      console.log('socket: ', arg, this.count)
       if(arg.socketId) {
         if(this.count > 0)
         {

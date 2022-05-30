@@ -16,6 +16,7 @@ export class AppointmentService {
       latitude: location.latitude,
       longitude: location.longitude,
       service: data.service,
+      date: new Date(data.date),
       type: data.type
     }
     return this.apiService.sendPostRequest('appointment', params)
@@ -58,6 +59,21 @@ export class AppointmentService {
   public getAppointmentLocation(appointmentId) {
     const params = {
       getAppointmentLocation: true,
+      appointment_id: appointmentId
+    }
+    return this.apiService.sendGetRequestParams('appointment', params)
+  }
+
+  public getUserRecentAppointments() {
+    const params = {
+      getUserRecentAppointments: true
+    }
+    return this.apiService.sendGetRequestParams('appointment', params)
+  }
+
+  public getDetailsForRating(appointmentId) {
+    const params = {
+      detailsForRating: true,
       appointment_id: appointmentId
     }
     return this.apiService.sendGetRequestParams('appointment', params)

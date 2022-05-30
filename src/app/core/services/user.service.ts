@@ -18,4 +18,10 @@ export class UserService {
     }
     return this.apiService.sendGetRequestParams('user', params)
   }
+
+  public uploadPicture(data) {
+    const formData: FormData = new FormData();
+    formData.append('file', data);
+    return this.apiService.sendUpdateRequest('user', formData)
+  }
 }
