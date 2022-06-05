@@ -71,6 +71,6 @@ export class UserDashboardPage implements OnInit {
   
   clickAppointment(appointmentId){
     console.log('id: ', appointmentId)
-    this.router.navigate(['appointment-detail', appointmentId])
+    this.router.navigate(['appointment-detail', appointmentId, 3])
   }
 }

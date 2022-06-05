@@ -8,47 +8,53 @@
 
   <div class="main">
     <h4 class="scheduled-app">Scheduled Appointments</h4>
-    <div>
-      <div class="row app-div">
-        <div class="col-2">
-          <ion-icon class="app-image" name="person"></ion-icon>
+    <div  *ngFor="let appointment of appointments" (click)="clickAppointment(appointment.appointment_id)">
+      <div class="row app-div" *ngIf="scheduledAppointments.length > 0">
+        <div class="col-2 service-icon">
+          <ion-icon *ngIf="!appointment?.image" class="app-icon" name="person"></ion-icon>
+          <img *ngIf="appointment?.image" class="app-img" [src]="prefix + appointment.image">
         </div>
-        <div class="col-4">
-             
-          <p>Service Name</p>
-          <p>Amount</p>
+        <div class="col-4 service-info">
+          <p class="service-name2">{{appointment.service_name}}</p>
+          <p>{{appointment.charges}} PKR</p>
         </div>
-        <div text-wrap class="col-6 star-div">
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star-outline"></ion-icon>
-          <ion-icon style="color:gold;" name="star-outline"></ion-icon>
-          <p>Date</p>
+        <div class="col-6" style="margin-top:7%;">
+          <div class="row star-div">
+            <div *ngFor="let point of appointment.points" style="width:18%;">
+              <ion-icon class="star-icon" *ngIf="point" style="color:rgb(223, 192, 55);" name="star"></ion-icon>
+              <ion-icon class="star-icon" *ngIf="!point" style="color:rgb(223, 192, 55);" name="star-outline"></ion-icon>
+            </div>
+          </div>
+          <div class="row">
+            <p>{{appointment.date}}</p>
+          </div>
         </div>
       </div>
     </div>
-    <p class="see-all-text">See All</p>
+    <p class="see-all-text" *ngIf="scheduledAppointments.length > 0">See All</p>
+    <div *ngIf="scheduledAppointments.length == 0">No Scheduled Appointments</div>
   </div>
+  
   <div class="main">
-    <h4 class="scheduled-app">Recent Feedback</h4>
-    <div>
-      <div class="row app-div">
-        <div class="col-2">
-          <ion-icon class="app-image" name="person"></ion-icon>
+    <h4 class="scheduled-app">Recent Appointment</h4>
+    <div class="row app-div" *ngFor="let appointment of appointments" (click)="clickAppointment(appointment.appointment_id)">
+      <div class="col-2 service-icon">
+        <ion-icon *ngIf="!appointment?.image" class="app-icon" name="person"></ion-icon>
+        <img *ngIf="appointment?.image" class="app-img" [src]="prefix + appointment.image">
+      </div>
+      <div class="col-4 service-info">
+        <p class="service-name2">{{appointment.service_name}}</p>
+        <p>{{appointment.charges}} PKR</p>
+      </div>
+      <div class="col-6" style="margin-top:7%;">
+        <div class="row star-div">
+          <div *ngFor="let point of appointment.points" style="width:18%;">
+            <ion-icon class="star-icon" *ngIf="point" style="color:rgb(223, 192, 55);" name="star"></ion-icon>
+            <ion-icon class="star-icon" *ngIf="!point" style="color:rgb(223, 192, 55);" name="star-outline"></ion-icon>
+          </div>
         </div>
-        <div class="col-4">
-             
-          <p>Service Name</p>
-          <p>Amount</p>
-        </div>
-        <div text-wrap class="col-6 star-div">
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star"></ion-icon>
-          <ion-icon style="color:gold;" name="star-outline"></ion-icon>
-          <ion-icon style="color:gold;" name="star-outline"></ion-icon>
-          <p>Date</p>
+        <div class="row">
+          <p>{{appointment.date}}</p>
         </div>
       </div>
     </div>

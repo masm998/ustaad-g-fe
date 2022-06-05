@@ -78,4 +78,11 @@ export class AppointmentService {
     }
     return this.apiService.sendGetRequestParams('appointment', params)
   }
+
+  public getUstaadAppointments() {
+    const params = {
+      getUstaadAppointments: true
+    }
+    return this.apiService.sendGetRequestParams('appointment', params)
+  }
 }

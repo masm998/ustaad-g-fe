@@ -4,6 +4,9 @@ import { ToastService } from 'src/app/core/services/toast.service';
 import { io } from 'socket.io-client'
 import { ModalController } from '@ionic/angular';
 import { RequestModalComponent } from 'src/app/shared/request-modal/request-modal.component';
+import { AppointmentService } from 'src/app/core/services/appointment.service';
+import * as moment from 'moment'
+import { config } from 'src/environments/environment';
 
 @Component({
   selector: 'app-ustaad-dashboard',
@@ -12,12 +15,17 @@ import { RequestModalComponent } from 'src/app/shared/request-modal/request-moda
 })
 export class UstaadDashboardPage implements OnInit, AfterViewInit {
   socket = io('ws://localhost:3000')
+  prefix = config.backend_url
   count: number = 0
+  appointments = []
+  scheduledAppointments = []
 
-  constructor(private mechanicService: MechanicService, private toastService: ToastService, private modalController: ModalController) { }
+  constructor(private mechanicService: MechanicService, private toastService: ToastService, private modalController: ModalController,
+     private appointmentService: AppointmentService) { }
 
   ngOnInit() {
     this.getAppointmentRequestsCount()
+    this.getAppointments()
   }
 
   ngAfterViewInit() {
@@ -66,5 +74,32 @@ export class UstaadDashboardPage implements OnInit, AfterViewInit {
 
   getScheduledAppointments() {
     
+  }
+  getAppointments(){
+    this.appointmentService.getUstaadAppointments()
+    .subscribe((res: any) => {
+      if(res.success) {
+        this.appointments = res.data
+        
+        this.appointments.forEach((app: any, index, object) => {
+          const m = moment.utc(app.date)
+          app.date = m.format('D-MM-YY hh:mm a')
+          const appPoints = app.points ? app.points : 0
+          app.points = []
+          for(let i = 0; i < appPoints; i++) {
+            app.points.push(true)
+          }
+          for(let i = appPoints; i < 5; i++) {
+            app.points.push(false)
+          }
+
+          if(app.appointment_type == 2){
+            this.scheduledAppointments.push(app)
+            this.appointments.splice(index, 1)
+          }
+        })
+        console.log(this.appointments)
+      }
+    })
   }
 }

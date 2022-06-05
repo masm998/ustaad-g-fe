@@ -46,7 +46,7 @@ const routes: Routes = [
     component: ServiceDetailPage
   },
   {
-    path: 'appointment-detail/:id',
+    path: 'appointment-detail/:id/:status',
     component: AppointmentDetailPage
   },
   {
