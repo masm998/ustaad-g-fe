@@ -1,26 +1,12 @@
 <ion-content>
   <div class="content">
-    <img class="logo" src="../../../../assets/icon/dashboard_logo.png">
-    <!-- <h3>Ustaad G</h3> -->
-    <ion-searchbar showCancelButton="focus" placeholder='Search Service'></ion-searchbar>
-    <h4>Services</h4>
-    <ion-slides [options]="slideOpts">
-        <ion-slide *ngFor="let service of servicesList">
-          <div class="service-div" (click)="onClickService(service.id)">
-            <img class="service-logo" [src]="prefix + service?.image">
-            <p class="service-name">{{service?.service_name}}</p>
-          </div>
-        </ion-slide>
-    </ion-slides>
-    <div>
-      <h4>Appointments</h4>
-      <div class="appt-div">
-        <p>Car needs a repairing? Create an appointment.</p>
-        <button (click)="onCreateAppointment()">Create an Appointment</button>
-      </div>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="base/tabs/UserHome"></ion-back-button>
+    </ion-buttons>
+    <h2> Recent Appointments</h2>
     </div>
     <div>
-      <h4>Recent Appointments</h4>
+      <!-- <h4>Recent Appointments</h4> -->
         <div class="row app-div" *ngFor="let appointment of recentAppointments" (click)="clickAppointment(appointment.appointment_id)">
           <div class="col-2 service-icon">
             <ion-icon *ngIf="!appointment?.image" class="app-icon" name="person"></ion-icon>
@@ -42,7 +28,6 @@
             </div>
           </div>
         </div>
-      <p class="see-all-text" (click)="onClickSeeAll(1)">See All</p>
-    </div>
   </div>
+
 </ion-content>

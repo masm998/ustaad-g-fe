@@ -78,6 +78,7 @@ export class UstaadDashboardPage implements OnInit, AfterViewInit {
   getAppointments(){
     this.appointmentService.getUstaadAppointments()
     .subscribe((res: any) => {
+      console.log(res.data)
       if(res.success) {
         this.appointments = res.data
         
@@ -98,7 +99,8 @@ export class UstaadDashboardPage implements OnInit, AfterViewInit {
             this.appointments.splice(index, 1)
           }
         })
-        console.log(this.appointments)
+        this.appointments = this.appointments.slice(0, 3)
+        this.scheduledAppointments = this.scheduledAppointments.slice(0, 3)
       }
     })
   }

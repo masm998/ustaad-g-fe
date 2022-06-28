@@ -32,10 +32,10 @@
       </div>
     </div>
     <p class="see-all-text" *ngIf="scheduledAppointments.length > 0">See All</p>
-    <div *ngIf="scheduledAppointments.length == 0">No Scheduled Appointments</div>
+    <div style="text-align: center;" *ngIf="scheduledAppointments.length == 0">No Scheduled Appointments</div>
   </div>
   
-  <div class="main">
+  <div class="main main2">
     <h4 class="scheduled-app">Recent Appointment</h4>
     <div class="row app-div" *ngFor="let appointment of appointments" (click)="clickAppointment(appointment.appointment_id)">
       <div class="col-2 service-icon">
@@ -58,6 +58,7 @@
         </div>
       </div>
     </div>
-    <p class="see-all-text">See All</p>
+    <p class="see-all-text" *ngIf="appointments.length > 0">See All</p>
+    <div style="text-align: center;" *ngIf="appointments.length == 0">No Recent Appointments</div>
   </div>
 </ion-content>

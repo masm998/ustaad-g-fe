@@ -73,4 +73,8 @@ export class UserDashboardPage implements OnInit {
     console.log('id: ', appointmentId)
     this.router.navigate(['appointment-detail', appointmentId, 3])
   }
+  
+  onClickSeeAll(type) {
+    this.router.navigate(['appointment-list', type])
+  }
 }

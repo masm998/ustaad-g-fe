@@ -14,8 +14,8 @@
     <div class="col-1"></div>
   </div>
 
-    <h4 *ngIf="userRole == '2'">{{appointmentDetail?.mechanic_name}}</h4>
-    <h4 *ngIf="userRole == '3'">{{appointmentDetail?.customer_name}}</h4>
+    <h4 *ngIf="userRole == '2'">{{appointmentDetail?.customer_name}}</h4>
+    <h4 *ngIf="userRole == '3'">{{appointmentDetail?.mechanic_name}}</h4>
     <div class="rate-star">
       <div class="star-div" *ngFor="let star of stars">
         <ion-icon style="color:rgb(223, 192, 55);" *ngIf="star.value" name="star" (click)="onClickStar(star.id)"></ion-icon>

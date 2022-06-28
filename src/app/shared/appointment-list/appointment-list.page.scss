@@ -1,33 +1,13 @@
 .content{
     color: #707070;
+    margin-left: 4%;
     background-color: white;
-    margin-left: 3%;
-    
-}
-.logo{
-    width: 45%;
-    height: 45px;
-    margin-top: 2%;
 }
 h3, h4 {
     font-weight: 600;
 }
-
-.main, main2 {
-    color: #707070;
-    h4 {
-        margin-left: 4%;
-    }
-}
-
-.main2 {
-    margin-top: 10%;
-}
-
-.scheduled-app {
-    font-size: 20px;
-    font-weight: 600;
-    color: #707070;
+.service-div {
+    text-align: center;
 }
 
 .app-div {
@@ -77,11 +57,4 @@ h3, h4 {
 
 .star-icon {
     font-size: 120%;
-}
-
-.see-all-text {
-    float: right;
-    margin-right: 8%;
-    font-size: 54%;
-    text-decoration: underline;
 }

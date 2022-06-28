@@ -8,6 +8,7 @@ import { RatingComponent } from './shared/rating/rating.component';
 import { ServiceDetailPage } from './shared/service-detail/service-detail.page';
 import { OngoingAppointmentPage } from './shared/ongoing-appointment/ongoing-appointment.page';
 import { ProfilePictureComponent } from './shared/profile-picture/profile-picture.component';
+import { AppointmentListPage } from './shared/appointment-list/appointment-list.page';
 
 const routes: Routes = [
  
@@ -68,7 +69,12 @@ const routes: Routes = [
   {
     path: 'profile-picture',
     component: ProfilePictureComponent
+  },
+  {
+    path: 'appointment-list/:type',
+    component: AppointmentListPage
   }
+
 ];
 
 @NgModule({

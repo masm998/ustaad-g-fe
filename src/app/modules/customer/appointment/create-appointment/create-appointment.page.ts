@@ -89,8 +89,8 @@ export class CreateAppointmentPage implements OnInit {
     if(this.createAppointment.valid) {
       this.appointmentService.createAppointment(this.createAppointment.value, this.location)
       .subscribe((res: any) => {
+        console.log(res)
         if(res.success){
-          console.log(res)
           this.toastService.loginSuccessToast('Appointment Created Successfully!')
           this.router.navigate(['customer/appointment/searching-mechanic', res.data[0].appointment_id])
         }

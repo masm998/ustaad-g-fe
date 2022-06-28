@@ -5,6 +5,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { IonicModule } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
     CommonModule,
     FormsModule,
     CustomerRoutingModule,
-    IonicModule
+    IonicModule,
+    SharedModule
   ],
   providers: [
     Geolocation,

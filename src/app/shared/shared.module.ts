@@ -17,10 +17,11 @@ import { OngoingAppointmentPage } from './ongoing-appointment/ongoing-appointmen
 import { RequestModalModule } from './request-modal/request-modal.module';
 import { RatingModule } from './rating/rating.module';
 import { ProfilePictureModule } from './profile-picture/profile-picture.module';
+import { AppointmentListPage } from './appointment-list/appointment-list.page';
 
 @NgModule({
   declarations: [
-    HeaderComponent, OngoingAppointmentPage
+    HeaderComponent, OngoingAppointmentPage, AppointmentListPage
   ],
   imports: [
     CommonModule,

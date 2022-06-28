@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MechanicService } from 'src/app/core/services/mechanic.service';
 import { ServiceService } from 'src/app/core/services/service.service';
 import { config } from 'src/environments/environment';
 
@@ -17,13 +18,14 @@ export class ServiceDetailPage implements OnInit {
     speed: 600
   };
 
-  constructor(private activatedRoute: ActivatedRoute, private serviceService: ServiceService) { }
+  constructor(private activatedRoute: ActivatedRoute, private serviceService: ServiceService, private mechanicService: MechanicService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((param)=>{
       this.serviceId = param.id;
     })
     this.getServiceDetails()
+    this.getRelatedMechanics()
   }
 
   getServiceDetails() {
@@ -33,6 +35,11 @@ export class ServiceDetailPage implements OnInit {
         this.serviceDetail = res.data[0]
       }
     })
+  }
+
+  getRelatedMechanics() {
+    this.mechanicService.getServiceMechanics(this.serviceId)
+    
   }
 
 }

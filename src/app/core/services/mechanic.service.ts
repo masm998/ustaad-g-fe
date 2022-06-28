@@ -28,4 +28,12 @@ export class MechanicService {
     }
     return this.apiService.sendGetRequestParams('mechanic', params)
   }
+
+  public getServiceMechanics(serviceId) {
+    const params = {
+      service_id: serviceId,
+      getServiceMechanics: true
+    }
+    return this.apiService.sendGetRequestParams('mechanic', params)
+  }
 }

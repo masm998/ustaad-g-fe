@@ -33,6 +33,7 @@ export class RatingComponent implements OnInit {
     this.appointmentService.getDetailsForRating(this.app_id)
     .subscribe((res: any) => {
       this.appointmentDetail = res.data[0];
+      console.log('res: ', this.appointmentDetail)
     })
   }
 
