@@ -12,7 +12,8 @@
   <div class="info">
       <div class="style">
           <ion-icon src= '../../../assets/icon/profile.svg'></ion-icon>
-          <span>{{ appointmentDetail?.customer_fname }} {{ appointmentDetail?.customer_lname }}</span>
+          <span *ngIf="userRole === '3'">{{ appointmentDetail?.ustaad_fname }} {{ appointmentDetail?.ustaad_lname }}</span>
+          <span *ngIf="userRole === '2'">{{ appointmentDetail?.customer_fname }} {{ appointmentDetail?.customer_lname }}</span>
       </div>
       <div class="style">
           <ion-icon src ='../../../../assets/icon/location-pin.svg'></ion-icon>

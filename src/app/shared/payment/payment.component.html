@@ -1,0 +1,17 @@
+<ion-content>
+  <div class="row"> 
+    <div class="col-1"></div>
+    <div class="col-10 ion-text-center">
+      <div class="logo">
+        <img [src]="prefix + chargesDetails?.image">
+      </div>
+      <h3>{{chargesDetails?.service_name}}</h3>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <div class="charges">
+    <p>Service Charges</p>
+    <h4>Rs {{chargesDetails?.charges}} PKR/-</h4>
+    <button (click)="onClickSubmit()">Submit</button>
+  </div>
+</ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AutomobileService } from 'src/app/core/services/automobile.service';
+import { config } from 'src/environments/environment';
 
 @Component({
   selector: 'app-automobile-details',
@@ -9,7 +10,9 @@ import { AutomobileService } from 'src/app/core/services/automobile.service';
 })
 export class AutomobileDetailsPage implements OnInit {
   carId: number;
-  automobileDetails: any
+  automobileDetails: any;
+  prefix = config.backend_url
+
   constructor(private automobileService: AutomobileService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

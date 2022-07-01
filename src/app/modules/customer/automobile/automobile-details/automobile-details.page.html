@@ -6,7 +6,7 @@
     <h2> Automobile Details</h2>
   </div>
   <div class= 'car-image'>
-    <img src ='../../../assets/car.jpg' alt= 'No Image'>
+    <img  [src]="prefix + automobileDetails?.image">
   </div>
   <div>
     <p>Type: {{automobileDetails?.type}} </p>

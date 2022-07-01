@@ -34,7 +34,7 @@ export class OngoingAppointmentPage implements OnInit {
       this.socket.on('endAppointment', (arg) => {
         if(arg.socketId) {
           this.toastService.generalCenterToast('The Ustaad has Ended the Service!')
-          this.router.navigate(['rating', this.app_id])
+          this.router.navigate(['payment', this.app_id])
         }
       })
     }
@@ -44,6 +44,7 @@ export class OngoingAppointmentPage implements OnInit {
     this.appointmentService.getAppointmentDetail(this.app_id, 2)
     .subscribe((result: any) => {
       this.appointmentDetail = result.data.length ? result.data[0] : null;
+      console.log(this.appointmentDetail)
     })
   }
 

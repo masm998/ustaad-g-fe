@@ -9,6 +9,8 @@ import { ServiceDetailPage } from './shared/service-detail/service-detail.page';
 import { OngoingAppointmentPage } from './shared/ongoing-appointment/ongoing-appointment.page';
 import { ProfilePictureComponent } from './shared/profile-picture/profile-picture.component';
 import { AppointmentListPage } from './shared/appointment-list/appointment-list.page';
+import { PaymentComponent } from './shared/payment/payment.component';
+import { PaymentMethodPage } from './shared/payment-method/payment-method.page';
 
 const routes: Routes = [
  
@@ -73,7 +75,16 @@ const routes: Routes = [
   {
     path: 'appointment-list/:type',
     component: AppointmentListPage
+  },
+  {
+    path: 'payment/:id',
+    component: PaymentComponent
+  },
+  {
+    path: 'payment-method',
+    component: PaymentMethodPage
   }
+
 
 ];
 

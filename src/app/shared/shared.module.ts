@@ -18,10 +18,11 @@ import { RequestModalModule } from './request-modal/request-modal.module';
 import { RatingModule } from './rating/rating.module';
 import { ProfilePictureModule } from './profile-picture/profile-picture.module';
 import { AppointmentListPage } from './appointment-list/appointment-list.page';
+import { PaymentMethodPage } from './payment-method/payment-method.page';
 
 @NgModule({
   declarations: [
-    HeaderComponent, OngoingAppointmentPage, AppointmentListPage
+    HeaderComponent, OngoingAppointmentPage, AppointmentListPage, PaymentMethodPage
   ],
   imports: [
     CommonModule,

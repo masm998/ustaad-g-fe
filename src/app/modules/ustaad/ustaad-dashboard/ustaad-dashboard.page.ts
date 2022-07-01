@@ -7,6 +7,7 @@ import { RequestModalComponent } from 'src/app/shared/request-modal/request-moda
 import { AppointmentService } from 'src/app/core/services/appointment.service';
 import * as moment from 'moment'
 import { config } from 'src/environments/environment';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-ustaad-dashboard',
@@ -21,7 +22,7 @@ export class UstaadDashboardPage implements OnInit, AfterViewInit {
   scheduledAppointments = []
 
   constructor(private mechanicService: MechanicService, private toastService: ToastService, private modalController: ModalController,
-     private appointmentService: AppointmentService) { }
+     private appointmentService: AppointmentService, private router: Router) { }
 
   ngOnInit() {
     this.getAppointmentRequestsCount()
@@ -103,5 +104,9 @@ export class UstaadDashboardPage implements OnInit, AfterViewInit {
         this.scheduledAppointments = this.scheduledAppointments.slice(0, 3)
       }
     })
+  }
+
+  onClickSeeAll(type) {
+    this.router.navigate(['appointment-list', type])
   }
 }

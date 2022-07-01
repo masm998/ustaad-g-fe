@@ -1,0 +1,32 @@
+.content{
+    display: flex;
+    color: #707070;
+}
+button {
+    text-align: center;
+    background-color:  rgb(223, 192, 55);
+    padding: 2%;
+    border-radius: 22px;
+    width: 40%;
+    margin-top: 5%;
+    height: 40px;
+    font-size: 15px;
+    margin-left: 30%;
+}
+h3,h4,p{
+    text-align: center;
+}
+.logo{
+    width: 60%;
+    height: 60%;
+    margin-left: 20%;
+}
+h4{
+    font-size: 200%;
+}
+h3{
+    margin-top: -33px;
+}
+.charges{
+    margin-top: 55px;
+}

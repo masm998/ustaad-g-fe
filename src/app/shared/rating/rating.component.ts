@@ -67,5 +67,4 @@ export class RatingComponent implements OnInit {
       this.toastService.failureToast('Please give a star rating!')
     }
   }
-
 }

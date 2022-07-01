@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { AutomobileService } from 'src/app/core/services/automobile.service';
+import { config } from 'src/environments/environment';
 
 @Component({
   selector: 'app-automobile',
@@ -9,6 +10,7 @@ import { AutomobileService } from 'src/app/core/services/automobile.service';
 })
 export class AutomobilePage implements OnInit {
   automobileList: any;
+  prefix = config.backend_url
 
   constructor(private router: Router, private automobileService: AutomobileService) { }
 

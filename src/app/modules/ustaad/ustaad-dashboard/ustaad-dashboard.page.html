@@ -58,7 +58,7 @@
         </div>
       </div>
     </div>
-    <p class="see-all-text" *ngIf="appointments.length > 0">See All</p>
+    <p class="see-all-text" *ngIf="appointments.length > 0" (click)="onClickSeeAll(1)">See All</p>
     <div style="text-align: center;" *ngIf="appointments.length == 0">No Recent Appointments</div>
   </div>
 </ion-content>

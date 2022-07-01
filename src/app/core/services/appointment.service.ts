@@ -93,4 +93,12 @@ export class AppointmentService {
     }
     return this.apiService.sendGetRequestParams('appointment', params)
   }
+
+  public getAppointmentCharges(appId){
+    const params = {
+      appointmentCharges: true,
+      app_id: appId
+    }
+    return this.apiService.sendGetRequestParams('appointment', params)
+  }
 }

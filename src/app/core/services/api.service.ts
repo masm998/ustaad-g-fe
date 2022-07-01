@@ -30,8 +30,6 @@ export class ApiService {
 
   public sendGetRequestParams(path, data) {
     return new Observable((observer) => {
-      console.log('path: ', this.prefix + path)
-      console.log('headers:  ', this.headers)
       this.http.get(this.prefix + path, {params: data, headers: this.headers})
       .subscribe((res) => {
         observer.next(res)

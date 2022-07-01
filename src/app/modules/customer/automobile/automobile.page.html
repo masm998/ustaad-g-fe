@@ -10,7 +10,9 @@
   <div *ngFor="let automobile of automobileList">
     <div class="row" (click)='onclick(automobile.id)'>
       <div class ='col-4'>
-        <img src ='../../../../assets/car.jpg'>
+        <!-- <img src ='../../../../assets/car.jpg'> -->
+        <!-- <img class="service-logo" [src]="prefix + service?.image"> -->
+        <img class="car-logo" [src]="prefix + automobile?.image">
       </div>
       <div class ='col-8'>
         <p>Name: {{automobile.car_name}}</p>
