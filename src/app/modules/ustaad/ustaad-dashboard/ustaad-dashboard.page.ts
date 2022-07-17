@@ -44,6 +44,7 @@ export class UstaadDashboardPage implements OnInit, AfterViewInit {
   getAppointmentRequestsCount() {
     this.mechanicService.getActiveAppointmentRequests()
     .subscribe((res: any) => {
+      console.log('req: ', res)
       if(res.success) {
         let data = res.data
         data = data.map((d) => {

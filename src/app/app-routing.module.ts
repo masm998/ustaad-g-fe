@@ -81,7 +81,7 @@ const routes: Routes = [
     component: PaymentComponent
   },
   {
-    path: 'payment-method',
+    path: 'payment-method/:id',
     component: PaymentMethodPage
   }
 

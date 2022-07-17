@@ -42,7 +42,7 @@ export class AcceptedAppointmentPage implements OnInit {
       this.user = 'Mechanic'
       this.socket.on('startAppointment', (arg) => {
         if(arg.socketId) {
-          this.toastService.generalCenterToast('The Ustaad is on his way!')
+          // this.toastService.generalCenterToast('The Ustaad is on his way!')
           this.router.navigate(['ongoing-appointment', this.app_id])
         }
       })

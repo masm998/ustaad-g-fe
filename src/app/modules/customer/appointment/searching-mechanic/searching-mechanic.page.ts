@@ -26,6 +26,7 @@ export class SearchingMechanicPage implements OnInit {
     this.socket.on('acceptAppointment', (arg) => {
       if(arg.socketId) {
         console.log('arg: ', arg)
+        this.toastService.generalCenterToast('The Ustaad is on his way!')
         this.router.navigate(['accepted-appointment', this.appointmentId])
       }
     })
